@@ -47,24 +47,25 @@ function monografiaRef(){
         var inicialAutor1 = autor1[0];
         autoresFormt = autor1Sobrenome.toUpperCase() + ", " + inicialAutor1 + ". " + " et al";
 
-    } else if (tipoAutor == 1 && autor1 == "" && autor1Sobrenome == "") {
+    } else if (tipoAutor == 1 && autor1 == "" && autor1Sobrenome == "" && !semAutores.checked) {
         alert("Autor 1 deve ser informado");
+        autoresFormt = undefined;
 
-    } else if (tipoAutor == 2 && entidade == "") {
+    } else if (tipoAutor == 2 && entidade == "" && !semAutores.checked) {
         alert('Nome da entidade não informado');
 
-    } else if (tipoAutor == 2 && entidade != "") {
+    } else if (tipoAutor == 2 && entidade != "" && !semAutores.checked) {
         autoresFormt = entidade;
 
-    } else if (autor1 != "" && autor2 == "") {
+    } else if (autor1 != "" && autor2 == "" && !semAutores.checked) {
         //existe apenas um autor
         autoresFormt = autor1Format;
 
-    } else if (autor2 != "" && autor3 == "") {
+    } else if (autor2 != "" && autor3 == "" && !semAutores.checked) {
         //possui dois autores
         autoresFormt = autor1Format + "; " + autor2Format;
 
-    } else if (autor1 != "" && autor2 != "" && autor3 != "") {
+    } else if (autor1 != "" && autor2 != "" && autor3 != "" && !semAutores.checked) {
         //possui 3 autores
         autoresFormt = autor1Format + "; " + autor2Format + "; " + autor3Format;
 

@@ -151,7 +151,7 @@ function parteMonografiaRef(){
         var inicialAutor1 = autor1[0];
         autoresFormt = autor1Sobrenome.toUpperCase() + ", " + inicialAutor1 + ". " + " et al";
 
-    } else if (tipoAutor == 1 && autor1 == "" && autor1Sobrenome == "") {
+    } else if (tipoAutor == 1 && autor1 == "" && autor1Sobrenome == "" && !semAutores.checked) {
         alert("Autor 1 deve ser informado");
 
     } else if (tipoAutor == 2 && entidade == "") {
