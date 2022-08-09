@@ -1,16 +1,4 @@
-// var autor1;
-// var autor1Sobrenome = document.getElementById('autor1Sobrenome').value.toUpperCase();
-// var autor2 = document.getElementById('autor2').value;
-// var autor2Sobrenome = document.getElementById('autor2Sobrenome').value.toUpperCase();
-// var autor3 = document.getElementById('autor3').value;
-// var autor3Sobrenome = document.getElementById('autor3Sobrenome').value.toUpperCase();
-// var titulo = document.getElementById('titulo').value;
-// var edicao = document.getElementById('edicao').value;
-// var local = document.getElementById('local').value;
-// var editora = document.getElementById('editora').value;
-// var dataPublicacao = document.getElementById('dataPublicacao').value;
-function variaveis() {
-    /*Essa função será responsável por armazenar todos os dados inseridos no formulário em variáveis*/
+function monografiaEletronicoRef(){
     var autor1 = document.getElementById('autor1').value;
     var autor1Sobrenome = document.getElementById('autor1Sobrenome').value;
     var autor2 = document.getElementById('autor2').value;
@@ -36,7 +24,7 @@ function variaveis() {
     //3- Tradutor
     //4- Organizador
 
-    //document.getElementById("result").innerHTML = titulo
+    
     //VERIFICANDO SE HÁ MAIS DE 3 AUTORES
     var mais3autores = document.getElementById('mais3autores');
 
@@ -188,21 +176,3 @@ function variaveis() {
         document.getElementById('citacao').innerHTML = "Citacão no texto: " + citacaoAutores + " ou " + citacaoSemAutores;
     }
 }
-
-// variaveis();
-
-// console.log(autor1Sobrenome)
-// alert(autor1Sobrenome)
-
-//export function variaveis(){autor1, autor1Sobrenome}
-
-// function autores(){
-//     var autor1 = $autor1Sobrenome + ", " + $autor1;
-//     alert(autor1)
-// }
-
-
-// const botao = document.getElementById('enviar');
-// botao.onclick = function(){
-//     alert('TA FUNCIONADOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO')
-// }

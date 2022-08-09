@@ -1,0 +1,1 @@
+function teste () {document.getElementById('teste').innerHTML = "Olá mundo";}

@@ -1,0 +1,3 @@
+function parteRevistaBoletimRef(){
+    alert('funciona')
+}

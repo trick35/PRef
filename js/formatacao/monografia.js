@@ -1,16 +1,4 @@
-// var autor1;
-// var autor1Sobrenome = document.getElementById('autor1Sobrenome').value.toUpperCase();
-// var autor2 = document.getElementById('autor2').value;
-// var autor2Sobrenome = document.getElementById('autor2Sobrenome').value.toUpperCase();
-// var autor3 = document.getElementById('autor3').value;
-// var autor3Sobrenome = document.getElementById('autor3Sobrenome').value.toUpperCase();
-// var titulo = document.getElementById('titulo').value;
-// var edicao = document.getElementById('edicao').value;
-// var local = document.getElementById('local').value;
-// var editora = document.getElementById('editora').value;
-// var dataPublicacao = document.getElementById('dataPublicacao').value;
-function variaveis() {
-    /*Essa função será responsável por armazenar todos os dados inseridos no formulário em variáveis*/
+function monografiaRef(){
     var autor1 = document.getElementById('autor1').value;
     var autor1Sobrenome = document.getElementById('autor1Sobrenome').value;
     var autor2 = document.getElementById('autor2').value;
@@ -36,7 +24,6 @@ function variaveis() {
     //3- Tradutor
     //4- Organizador
 
-    //document.getElementById("result").innerHTML = titulo
     //VERIFICANDO SE HÁ MAIS DE 3 AUTORES
     var mais3autores = document.getElementById('mais3autores');
 
@@ -144,43 +131,19 @@ function variaveis() {
         citacaoSemAutores = "("+ autor1Sobrenome.toUpperCase() + ", " + anoPublicacao.toUpperCase() + ")";
 
     } else if(autor1Sobrenome != "" && autor2Sobrenome != "" && autor3Sobrenome == ""){
-        //há dois autor
+        //há dois autores
         citacaoAutores = autor1Sobrenome + " e " + autor2Sobrenome +  " ("+ anoPublicacao + ")";
         citacaoSemAutores = "("+ autor1Sobrenome.toUpperCase() + "; " + autor2Sobrenome.toUpperCase() + ", " + anoPublicacao + ")";
 
     } else if(autor1Sobrenome != "" && autor2Sobrenome != "" && autor3Sobrenome != ""){
-        //há três autor
+        //há três autores
         citacaoAutores = autor1Sobrenome + ", " + autor2Sobrenome + " e " + autor3Sobrenome + " ("+ anoPublicacao + ")";
         citacaoSemAutores = "("+ autor1Sobrenome.toUpperCase() + "; " + autor2Sobrenome.toUpperCase() + "; " + autor3Sobrenome.toUpperCase() + ", " + anoPublicacao + ")"
     }
 
     var result = anoFormat;
 
-    //CASO SEJA UMA PUBLICAÇÃO EM MEIO ELETRONICO
-    var fonte = document.getElementById('fonte').value;
-    var dia = document.getElementById('dia').value;
-    var mes = document.getElementById('mes').value;
-    var anoAcesso = document.getElementById('anoAcesso').value;
-    var cdrom = document.getElementById('cdrom');
-    var online = document.getElementById('online');
-    if (cdrom.checked || online.checked) {
-        if (cdrom.checked) {
-            result = anoFormat + " CD-ROM."
-        } else {
-            if (fonte == "" || dia == "" || mes == "" || anoAcesso == "") {
-                alert('Preencha todos os campos corretamente')
-                autoresFormt = undefined;
-            } else {
-                result = anoFormat + " Disponível em: " + fonte + ". Acesso em: " + dia + " " + mes + ". " + anoAcesso + "."
-            }
-        }
-    }
     //RESULTADO
-
-
-    //var anoFormat = dataPublicacao.getYear();
-    //alert(dataPublicacao)
-
     if (autoresFormt == undefined && !semAutores.checked)
         alert('Ocorreu um erro! Certifique-se que todos os campos foram preenchidos corretamente');
     else{
@@ -188,21 +151,3 @@ function variaveis() {
         document.getElementById('citacao').innerHTML = "Citacão no texto: " + citacaoAutores + " ou " + citacaoSemAutores;
     }
 }
-
-// variaveis();
-
-// console.log(autor1Sobrenome)
-// alert(autor1Sobrenome)
-
-//export function variaveis(){autor1, autor1Sobrenome}
-
-// function autores(){
-//     var autor1 = $autor1Sobrenome + ", " + $autor1;
-//     alert(autor1)
-// }
-
-
-// const botao = document.getElementById('enviar');
-// botao.onclick = function(){
-//     alert('TA FUNCIONADOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO')
-// }

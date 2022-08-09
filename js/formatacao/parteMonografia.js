@@ -1,16 +1,107 @@
-// var autor1;
-// var autor1Sobrenome = document.getElementById('autor1Sobrenome').value.toUpperCase();
-// var autor2 = document.getElementById('autor2').value;
-// var autor2Sobrenome = document.getElementById('autor2Sobrenome').value.toUpperCase();
-// var autor3 = document.getElementById('autor3').value;
-// var autor3Sobrenome = document.getElementById('autor3Sobrenome').value.toUpperCase();
-// var titulo = document.getElementById('titulo').value;
-// var edicao = document.getElementById('edicao').value;
-// var local = document.getElementById('local').value;
-// var editora = document.getElementById('editora').value;
-// var dataPublicacao = document.getElementById('dataPublicacao').value;
-function variaveis() {
-    /*Essa função será responsável por armazenar todos os dados inseridos no formulário em variáveis*/
+function parteMonografiaRef(){
+    //REFERENCIA DA PARTE/CAPITULO
+    var autor1Parte = document.getElementById('autor1Parte').value;
+    var autor1SobrenomeParte = document.getElementById('autor1SobrenomeParte').value;
+    var autor2Parte = document.getElementById('autor2Parte').value;
+    var autor2SobrenomeParte = document.getElementById('autor2SobrenomeParte').value;
+    var autor3Parte = document.getElementById('autor3Parte').value;
+    var autor3SobrenomeParte = document.getElementById('autor3SobrenomeParte').value;
+    var tituloParte = document.getElementById('tituloParte').value;
+    var entidadeParte = document.getElementById('entidadeParte').value;
+
+    //TIPO AUTOR
+    var tipoAutorParte = document.querySelector("#tipoAutorParte").value;
+    //1- Pessoa física
+    //2- Entidade
+
+    //RESPONSABILIDADE INTELECTUAL
+    var responsabilidadeParte = document.querySelector("#responsabilidadeParte").value;
+    //1- Autor
+    //2- Editor
+    //3- Tradutor
+    //4- Organizador
+
+    //VERIFICANDO SE HÁ MAIS DE 3 AUTORES
+    var mais3autoresParte = document.getElementById('mais3autoresParte');
+
+    //VERIFICANDO SE A OBRA NÃO POSSUI AUTORES
+    var semAutoresParte = document.getElementById('semAutoresParte');
+
+    //FORMATACAO DE AUTORES
+    var autor1ParteFormat = autor1SobrenomeParte.toUpperCase() + ", " + autor1Parte;
+    var autor2ParteFormat = autor2SobrenomeParte.toUpperCase() + ", " + autor2Parte;
+    var autor3ParteFormat = autor3SobrenomeParte.toUpperCase() + ", " + autor3Parte;
+    var autoresParteFormt;
+
+    //VERIFICAÇÃO DA QUANTIDADE DE AUTORES
+    if (tipoAutorParte != 1 && tipoAutorParte != 2 && !semAutoresParte.checked) {
+        alert('Informe o tipo do autor da parte');
+
+    } else if (responsabilidadeParte != 1 && responsabilidadeParte != 2 && responsabilidadeParte != 3 && responsabilidadeParte != 4 && !semAutoresParte.checked) {
+        alert('Informe a responsabilidade intelectual do autor da parte');
+
+    } else if (mais3autoresParte.checked) {
+        var inicialAutor1Parte = autor1Parte[0];
+        autoresParteFormt = autor1SobrenomeParte.toUpperCase() + ", " + inicialAutor1Parte + ". " + " et al";
+
+    } else if (tipoAutorParte == 1 && autor1Parte == "" && autor1SobrenomeParte == "") {
+        alert("Autor 1 da parte deve ser informado");
+
+    } else if (tipoAutorParte == 2 && entidadeParte == "") {
+        alert('Nome da entidade da parte não informado');
+
+    } else if (tipoAutorParte == 2 && entidadeParte != "") {
+        autoresParteFormt = entidadeParte;
+
+    } else if (autor1Parte != "" && autor2Parte == "") {
+        //existe apenas um autor
+        autoresParteFormt = autor1ParteFormat;
+
+    } else if (autor2Parte != "" && autor3Parte == "") {
+        //possui dois autores
+        autoresParteFormt = autor1ParteFormat + "; " + autor2ParteFormat;
+
+    } else if (autor1Parte != "" && autor2Parte != "" && autor3Parte != "") {
+        //possui 3 autores
+        autoresParteFormt = autor1ParteFormat + "; " + autor2ParteFormat + "; " + autor3ParteFormat;
+
+    }
+
+    if (tipoAutorParte == 1 && responsabilidadeParte == 1) {
+        //autor
+        autoresParteFormt = autoresParteFormt;
+    } else if (tipoAutorParte == 1 && responsabilidadeParte == 2) {
+        //editor
+        autoresParteFormt = autoresParteFormt + " (Ed.)"
+
+    } else if (tipoAutorParte == 1 && responsabilidadeParte == 3) {
+        //compilador
+        autoresParteFormt = autoresParteFormt + " (Comp.)"
+
+    } else if (tipoAutorParte == 1 && responsabilidadeParte == 4) {
+        //organizador
+        autoresParteFormt = autoresParteFormt + " (Org.)"
+
+    } else if (tipoAutorParte == 1 && responsabilidadeParte == 5) {
+        //coordenador
+        autoresParteFormt = autoresParteFormt + " (Coord.)"
+    }
+
+
+    //FORMATAÇÃO DO TITULO JUNTO COM OS AUTORES
+    var tituloParteFormat;
+    if (semAutoresParte.checked) {
+        //não há autores
+        tituloParteFormat = tituloParte + ". ";
+    } else {
+        //há autores
+        tituloParteFormat = autoresParteFormt + ". " + tituloParte + ". ";
+    }
+
+    var resultParte = tituloParteFormat;
+
+    //--------------------------------------------------------------------------------------
+    //REFERENCIA DOS DADOS DA NO TODO
     var autor1 = document.getElementById('autor1').value;
     var autor1Sobrenome = document.getElementById('autor1Sobrenome').value;
     var autor2 = document.getElementById('autor2').value;
@@ -23,6 +114,7 @@ function variaveis() {
     var editora = document.getElementById('editora').value;
     var anoPublicacao = document.getElementById('anoPublicacao').value;
     var entidade = document.getElementById('entidade').value;
+    var pag = document.getElementById('pag').value;
 
     //TIPO AUTOR
     var tipoAutor = document.querySelector("#tipoAutor").value;
@@ -36,7 +128,6 @@ function variaveis() {
     //3- Tradutor
     //4- Organizador
 
-    //document.getElementById("result").innerHTML = titulo
     //VERIFICANDO SE HÁ MAIS DE 3 AUTORES
     var mais3autores = document.getElementById('mais3autores');
 
@@ -144,65 +235,29 @@ function variaveis() {
         citacaoSemAutores = "("+ autor1Sobrenome.toUpperCase() + ", " + anoPublicacao.toUpperCase() + ")";
 
     } else if(autor1Sobrenome != "" && autor2Sobrenome != "" && autor3Sobrenome == ""){
-        //há dois autor
+        //há dois autores
         citacaoAutores = autor1Sobrenome + " e " + autor2Sobrenome +  " ("+ anoPublicacao + ")";
         citacaoSemAutores = "("+ autor1Sobrenome.toUpperCase() + "; " + autor2Sobrenome.toUpperCase() + ", " + anoPublicacao + ")";
 
     } else if(autor1Sobrenome != "" && autor2Sobrenome != "" && autor3Sobrenome != ""){
-        //há três autor
+        //há três autores
         citacaoAutores = autor1Sobrenome + ", " + autor2Sobrenome + " e " + autor3Sobrenome + " ("+ anoPublicacao + ")";
         citacaoSemAutores = "("+ autor1Sobrenome.toUpperCase() + "; " + autor2Sobrenome.toUpperCase() + "; " + autor3Sobrenome.toUpperCase() + ", " + anoPublicacao + ")"
     }
 
-    var result = anoFormat;
-
-    //CASO SEJA UMA PUBLICAÇÃO EM MEIO ELETRONICO
-    var fonte = document.getElementById('fonte').value;
-    var dia = document.getElementById('dia').value;
-    var mes = document.getElementById('mes').value;
-    var anoAcesso = document.getElementById('anoAcesso').value;
-    var cdrom = document.getElementById('cdrom');
-    var online = document.getElementById('online');
-    if (cdrom.checked || online.checked) {
-        if (cdrom.checked) {
-            result = anoFormat + " CD-ROM."
-        } else {
-            if (fonte == "" || dia == "" || mes == "" || anoAcesso == "") {
-                alert('Preencha todos os campos corretamente')
-                autoresFormt = undefined;
-            } else {
-                result = anoFormat + " Disponível em: " + fonte + ". Acesso em: " + dia + " " + mes + ". " + anoAcesso + "."
-            }
-        }
-    }
     //RESULTADO
+    if(pag == "")
+        alert('Informe o(s) numero(s) da(s) página(s)')
+    else 
+        var pagFormat = anoFormat + " p. " + pag + ".";
 
+    var result = resultParte + "In: " + pagFormat;
 
-    //var anoFormat = dataPublicacao.getYear();
-    //alert(dataPublicacao)
-
-    if (autoresFormt == undefined && !semAutores.checked)
+    //mostrando o resultado na tela
+    if (autoresFormt == undefined || autoresParteFormt == undefined && !semAutores.checked)
         alert('Ocorreu um erro! Certifique-se que todos os campos foram preenchidos corretamente');
     else{
         document.getElementById('result').innerHTML = "Referência: " + result;
         document.getElementById('citacao').innerHTML = "Citacão no texto: " + citacaoAutores + " ou " + citacaoSemAutores;
     }
 }
-
-// variaveis();
-
-// console.log(autor1Sobrenome)
-// alert(autor1Sobrenome)
-
-//export function variaveis(){autor1, autor1Sobrenome}
-
-// function autores(){
-//     var autor1 = $autor1Sobrenome + ", " + $autor1;
-//     alert(autor1)
-// }
-
-
-// const botao = document.getElementById('enviar');
-// botao.onclick = function(){
-//     alert('TA FUNCIONADOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO')
-// }
