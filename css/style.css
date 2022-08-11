@@ -518,3 +518,7 @@ body, html {
 p {
     color: #000;
 }
+
+.footer p{
+    color: #fff;
+}
