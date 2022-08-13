@@ -1,16 +1,20 @@
-function monografiaRef(){
+function trabalhoApresentadoEventoEletronicoRef(){
     var autor1 = document.getElementById('autor1').value;
     var autor1Sobrenome = document.getElementById('autor1Sobrenome').value;
     var autor2 = document.getElementById('autor2').value;
     var autor2Sobrenome = document.getElementById('autor2Sobrenome').value;
     var autor3 = document.getElementById('autor3').value;
     var autor3Sobrenome = document.getElementById('autor3Sobrenome').value;
-    var titulo = document.getElementById('titulo').value;
-    var edicao = document.getElementById('edicao').value;
-    var local = document.getElementById('local').value;
+    var tituloTrabalho = document.getElementById('tituloTrabalho').value;
+    var nomeEvento = document.getElementById('nomeEvento').value;
+    var numeracao = document.getElementById('numeracao').value;
+    var anoRealizacao = document.getElementById('anoRealizacao').value;
+    var localRealizacao = document.getElementById('localRealizacao').value;
+    var tituloDocumento = document.getElementById('tituloDocumento').value;
+    var localPublicacao = document.getElementById('localPublicacao').value;
     var editora = document.getElementById('editora').value;
     var anoPublicacao = document.getElementById('anoPublicacao').value;
-    var entidade = document.getElementById('entidade').value;
+    var pagInicialFinal = document.getElementById('pagInicialFinal').value;
 
     //TIPO AUTOR
     var tipoAutor = document.querySelector("#tipoAutor").value;
@@ -92,26 +96,119 @@ function monografiaRef(){
     }
 
 
-    //FORMATAÇÃO DO TITULO JUNTO COM OS AUTORES
-    var tituloFormat;
+    //FORMATAÇÃO DO TITULO DO TRABALHO APRESENTADO JUNTO COM OS AUTORES
+    var tituloTrabalhoFormat;
     if (semAutores.checked) {
         //não há autores
-        tituloFormat = titulo + ". ";
+        tituloTrabalhoFormat = tituloTrabalho + ". ";
     } else {
         //há autores
-        tituloFormat = autoresFormt + ". " + titulo.bold() + ". ";
+        tituloTrabalhoFormat = autoresFormt + ". " + tituloTrabalho + ". ";
     }
-    //EDIÇÃO
-    var edicaoFormat = tituloFormat + edicao + ". ed. ";
 
-    //LOCAL
-    var localFormat = edicaoFormat + local + ": ";
+    var resultTrabalho = tituloTrabalhoFormat;
 
-    //EDITORA
-    var editoraFormat = localFormat + editora + ", ";
+    //FORMATAÇÃO DO NOME DO EVENTO
+    var nomeEventoFormat;
+    if (nomeEvento == "") {
+        alert('Informe o nome do evento');
+        nomeEvento = undefined;
+    } else {
+        nomeEventoFormat = nomeEvento.toUpperCase() + ", ";
+    }
 
-    //ANO
-    var anoFormat = editoraFormat + anoPublicacao + ".";
+    //FORMATACAO DA NUMERAÇÃO, CASO HAJA
+    var numeracaoFormat;
+    if (numeracao != "") {
+        numeracaoFormat = nomeEventoFormat + numeracao + "., ";
+    } else {
+        numeracaoFormat = nomeEventoFormat;
+    }
+
+    //FORMATAÇÃO DO ANO DE REALIZAÇÃO DO EVENTO
+    var anoRealizacaoFormat;
+    if (anoRealizacao == "") {
+        alert('Informe o ano de realização do evento');
+        nomeEvento = undefined;
+    } else {
+        anoRealizacaoFormat = numeracaoFormat + anoRealizacao + ", ";
+    }
+
+    //FORMATAÇÃO DO LOCAL DE REALIZAÇÃO DO EVENTO
+    var localRealizacaoFormat;
+    if (localRealizacao == "") {
+        alert('Informe o ano de realização do evento');
+        nomeEvento = undefined;
+    } else {
+        localRealizacaoFormat = anoRealizacaoFormat + localRealizacao + ". ";
+    }
+
+    //FORMATAÇÃO DO TÍTULO DO DOCUMENTO
+    var tituloDocumentoFormat;
+    if (tituloDocumento == "") {
+        alert('Informe o título do documento');
+        nomeEvento = undefined;
+    } else {
+        tituloDocumentoFormat = localRealizacaoFormat + tituloDocumento.bold() + ". ";
+    }
+
+    //FORMATAÇÃO DO LOCAL DE PUBLICAÇÃO
+    var localPublicacaoFormat;
+    if (localPublicacao == "") {
+        alert('Informe o local de publicação');
+        nomeEvento = undefined;
+    } else {
+        localPublicacaoFormat = tituloDocumentoFormat + localPublicacao + ": ";
+    }
+
+    //FORMATACAO DA EDITORA
+    var editoraFormat;
+    if (editora == "") {
+        alert('DEPOIS FAZER A FORMATAÇÃO DE EDITORA VAZIA');
+    } else {
+        editoraFormat = localPublicacaoFormat + editora + ", ";
+    }
+
+    //FORMATAÇÃO DA DATA DE PUBLICAÇÃO
+    var anoPublicacaoFormat;
+    if(anoPublicacao == ""){
+        alert('Informe o ano de publicação do documento');
+        nomeEvento = undefined;
+    } else {
+        anoPublicacaoFormat = editoraFormat + anoPublicacao + ". ";
+    }
+
+    //FORMATAÇÃO DA PAGINAÇÃO
+    var paginacaoFormat;
+    if(pagInicialFinal == ""){
+        alert('Informe a paginação')
+    } else {
+        paginacaoFormat = anoPublicacaoFormat + "p. " + pagInicialFinal + "."
+    }
+
+    //CASO SEJA UMA PUBLICAÇÃO EM MEIO ELETRONICO
+    var fonte = document.getElementById('fonte').value;
+    var diaAcesso = document.getElementById('diaAcesso').value;
+    var mesAcesso = document.getElementById('mesAcesso').value;
+    var anoAcesso = document.getElementById('anoAcesso').value;
+    var cdrom = document.getElementById('cdrom');
+    var online = document.getElementById('online');
+    var resultEvento;
+    if (cdrom.checked || online.checked) {
+        if (cdrom.checked) {
+            resultEvento = paginacaoFormat + " CD-ROM."
+        } else {
+            if (fonte == "" || diaAcesso == "" || mesAcesso == "" || anoAcesso == "") {
+                alert('Preencha todos os campos corretamente')
+                autoresFormt = undefined;
+            } else {
+                resultEvento = paginacaoFormat + " Disponível em: " + fonte + ". Acesso em: " + diaAcesso + " " + mesAcesso + ". " + anoAcesso + "."
+            }
+        }
+    } else {
+        alert('Informe o meio de publicação');
+        autoresFormt = undefined;
+    }
 
     //CITAÇÃO NO TEXTO
     var citacaoAutores;
@@ -146,12 +243,12 @@ function monografiaRef(){
         citacaoAutores = autor1Sobrenome + ", " + autor2Sobrenome + " e " + autor3Sobrenome + " ("+ anoPublicacao + ")";
         citacaoSemAutores = "("+ autor1Sobrenome.toUpperCase() + "; " + autor2Sobrenome.toUpperCase() + "; " + autor3Sobrenome.toUpperCase() + ", " + anoPublicacao + ")"
     }
-
-
-    var result = anoFormat;
+    
 
     //RESULTADO
-    if (autoresFormt == undefined && !semAutores.checked)
+    var result = resultTrabalho + "In: " + resultEvento;
+
+    if (nomeEvento == undefined || autoresFormt == undefined)
         alert('Ocorreu um erro! Certifique-se que todos os campos foram preenchidos corretamente');
     else{
         document.getElementById('result').innerHTML = "Referência: " + result;

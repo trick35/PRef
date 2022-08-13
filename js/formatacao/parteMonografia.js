@@ -90,13 +90,18 @@ function parteMonografiaRef(){
 
     //FORMATAÇÃO DO TITULO JUNTO COM OS AUTORES
     var tituloParteFormat;
-    if (semAutoresParte.checked) {
-        //não há autores
-        tituloParteFormat = tituloParte + ". ";
+    if(tituloParte != ""){
+        if (semAutoresParte.checked) {
+            //não há autores
+            tituloParteFormat = tituloParte + ". ";
+        } else {
+            //há autores
+            tituloParteFormat = autoresParteFormt + ". " + tituloParte + ". ";
+        }
     } else {
-        //há autores
-        tituloParteFormat = autoresParteFormt + ". " + tituloParte + ". ";
+        alert('Informe o título da parte')
     }
+    
 
     var resultParte = tituloParteFormat;
 
@@ -197,13 +202,18 @@ function parteMonografiaRef(){
 
     //FORMATAÇÃO DO TITULO JUNTO COM OS AUTORES
     var tituloFormat;
-    if (semAutores.checked) {
-        //não há autores
-        tituloFormat = titulo + ". ";
+    if(titulo != ""){
+        if (semAutores.checked) {
+            //não há autores
+            tituloFormat = titulo + ". ";
+        } else {
+            //há autores
+            tituloFormat = autoresFormt + ". " + titulo.bold() + ". ";
+        }
     } else {
-        //há autores
-        tituloFormat = autoresFormt + ". " + titulo.bold() + ". ";
+        alert('Informe o título do todo')
     }
+    
     //EDIÇÃO
     var edicaoFormat = tituloFormat + edicao + ". ed. ";
 
@@ -219,6 +229,11 @@ function parteMonografiaRef(){
     //CITAÇÃO NO TEXTO
     var citacaoAutores;
     var citacaoSemAutores;
+    if(tipoAutor == 2){
+        //entidade
+        citacaoAutores = entidade + " ("+ anoPublicacao + ")";
+        citacaoSemAutores = "("+ entidade.toUpperCase() + ", " + anoPublicacao + ")";
+    }
     if(mais3autores.checked){
         //usar a abreviação de tres autores
         citacaoAutores = autor1Sobrenome + " <i>et</i> al. (" + anoPublicacao + ")";
@@ -232,7 +247,7 @@ function parteMonografiaRef(){
     } else if(autor1Sobrenome != "" && autor2Sobrenome == "" && autor3Sobrenome == ""){
         //há somente um autor
         citacaoAutores = autor1Sobrenome + " ("+ anoPublicacao + ")";
-        citacaoSemAutores = "("+ autor1Sobrenome.toUpperCase() + ", " + anoPublicacao.toUpperCase() + ")";
+        citacaoSemAutores = "("+ autor1Sobrenome.toUpperCase() + ", " + anoPublicacao + ")";
 
     } else if(autor1Sobrenome != "" && autor2Sobrenome != "" && autor3Sobrenome == ""){
         //há dois autores
@@ -244,6 +259,7 @@ function parteMonografiaRef(){
         citacaoAutores = autor1Sobrenome + ", " + autor2Sobrenome + " e " + autor3Sobrenome + " ("+ anoPublicacao + ")";
         citacaoSemAutores = "("+ autor1Sobrenome.toUpperCase() + "; " + autor2Sobrenome.toUpperCase() + "; " + autor3Sobrenome.toUpperCase() + ", " + anoPublicacao + ")"
     }
+
 
     //RESULTADO
     if(pag == "")

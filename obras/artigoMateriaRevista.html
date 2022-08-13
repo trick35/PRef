@@ -32,7 +32,11 @@
 
     <!--JavaScript-->
     <script src="../js/formatacao/artigoMateriaRevista.js" defer></script>
-    <title>Monografias</title>
+    <!-- <script src="../js/main.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <title>Artigos e materias em revistas</title>
 </head>
 
 <body>
@@ -68,40 +72,40 @@
 
 
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top py-lg-0 px-lg-5 wow fadeIn"
+    <nav class="navbar navbar-expand-lg fixed-top bg-primary navbar-dark sticky-top py-lg-0 px-lg-5 wow fadeIn"
         data-wow-delay="0.1s">
-        <a href="#" class="navbar-brand ms-3 d-lg-none"></a>
+        <a href="#" class="navbar-brand ms-3 d-lg-none">TIPO DE OBRA</a>
         <button type="button" class="navbar-toggler me-3" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav me-auto p-3 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="../index.html" class="nav-item nav-link">Home</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Monografia</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Monografia</a>
                     <div class="dropdown-menu border-0 rounded-0 rounded-bottom m-0">
                         <a href="monografia.html" class="dropdown-item">Monografia no todo</a>
-                        <a href="monografiaEletronico.html" class="dropdown-item">Monografia em meio
-                            eletrônico</a>
+                        <a href="monografiaEletronico.html" class="dropdown-item">Monografia em meio eletrônico</a>
                         <a href="parteMonografia.html" class="dropdown-item">Parte de monografia</a>
                         <a href="parteMonografiaEletronico.html" class="dropdown-item">Parte de Monografia em meio
                             eletrônico</a>
+                        <a href="teste.html" class="dropdown-item">TESTE</a>
                     </div>
                 </div>
 
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Publicação Periódica</a>
+                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Publicação
+                        Periódica</a>
                     <div class="dropdown-menu border-0 rounded-0 rounded-bottom m-0">
                         <a href="publicacaoPeriodica.html" class="dropdown-item">Publicação Periódica no todo</a>
-                        <a href="parteRevistaBoletim.html" class="dropdown-item">Partes de revista, boletim
+                        <a href="parteRevistaBoletim.html" class="dropdown-item">Partes de revista, boletim etc</a>
+                        <a href="artigoMateriaRevista.html" class="dropdown-item active">Artigo e/ou matéria de revista/boletim
                             etc</a>
-                        <a href="artigoMateriaRevista.html" class="dropdown-item">Artigo e/ou matéria de
-                            revista/boletim etc</a>
                         <a href="artigoMateriaRevistaEletronico.html" class="dropdown-item">Artigo e/ou matéria de
                             revista/boletim etc em meio eletrônico</a>
                         <a href="artigoMateriaJornal.html" class="dropdown-item">Artigo e/ou matéria de jornal</a>
-                        <a href="artigoMateriaJornalEletronico.html" class="dropdown-item">Artigo e/ou matéria de
-                            jornal em meio eletrônico</a>
+                        <a href="artigoMateriaJornalEletronico.html" class="dropdown-item">Artigo e/ou matéria de jornal
+                            em meio eletrônico</a>
                     </div>
                 </div>
 
@@ -109,12 +113,11 @@
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Evento</a>
                     <div class="dropdown-menu border-0 rounded-0 rounded-bottom m-0">
                         <a href="evento.html" class="dropdown-item">Evento como um todo</a>
-                        <a href="eventoEletronico.html" class="dropdown-item">Evento como um todo em meio
-                            eletrônico</a>
-                        <a href="/trabalhoApresentadoEvento.html" class="dropdown-item">Trabalho apresentado em
+                        <a href="eventoEletronico.html" class="dropdown-item">Evento como um todo em meio eletrônico</a>
+                        <a href="trabalhoApresentadoEvento.html" class="dropdown-item">Trabalho apresentado em
                             evento</a>
-                        <a href="/trabalhoApresentadoEventoEletronico.html" class="dropdown-item">Trabalho
-                            apresentado em evento em meio eletrônico</a>
+                        <a href="trabalhoApresentadoEventoEletronico.html" class="dropdown-item">Trabalho apresentado em
+                            evento em meio eletrônico</a>
                     </div>
                 </div>
 
@@ -135,47 +138,47 @@
                         <a href="patente.html" class="dropdown-item">Patente</a>
                         <a href="imgMovimento.html" class="dropdown-item">Imagem em movimento</a>
                         <a href="docIconografico.html" class="dropdown-item">Documento Iconográfico</a>
-                        <a href="docIconograficoEletronico.html" class="dropdown-item">Documento Iconográfico em
-                            meio eletrônico</a>
+                        <a href="docIconograficoEletronico.html" class="dropdown-item">Documento Iconográfico em meio
+                            eletrônico</a>
                         <a href="docCartografico.html" class="dropdown-item">Documento Cartográfico</a>
-                        <a href="docCartograficoEletronico.html" class="dropdown-item">Documento Cartográfico em
-                            meio eletrônico</a>
+                        <a href="docCartograficoEletronico.html" class="dropdown-item">Documento Cartográfico em meio
+                            eletrônico</a>
                         <a href="docSonoro.html" class="dropdown-item">Documento sonoro no todo</a>
                         <a href="docSonoroParte.html" class="dropdown-item">Documento sonoro em parte</a>
                         <a href="partitura.html" class="dropdown-item">Partitura</a>
                         <a href="partituraEletronico.html" class="dropdown-item">Partitura em meio eletrônico</a>
                         <a href="docTridimensional.html" class="dropdown-item">Documento tridimensional</a>
-                        <a href="docAcessoExclusivoEletronico.html" class="dropdown-item">Documentos de acesso
-                            exclusivo em meio eletrônico</a>
+                        <a href="docAcessoExclusivoEletronico.html" class="dropdown-item">Documentos de acesso exclusivo
+                            em meio eletrônico</a>
                     </div>
                 </div>
 
-                <a href="../contact.html" class="nav-item nav-link">Contato</a>
+                <a href="../contact.html" class="nav-item nav-link">Contact Us</a>
             </div>
         </div>
     </nav>
+    <!--Navbar end-->
 
     <!--Entrada de dados-->
     <!--PARA TABS-->
     <!--https://www.youtube.com/watch?v=UDg6jy_iF24-->
-    <script src="js/main.js"></script>
-    <div class="elementos">
-        <div class="elementosObras">
-            <h2>Faça referências de artigos ou matérias de <br>revistas, boletins, etc</h2>
-            <p>
-                Inclui partes de publicações periódicas (volumes, fascículos, números especiais<br>
-                e suplementos, com título próprio), comunicações, editorial, entrevistas, <br>
-                recensões, reportagens, resenhas e outros.
-            </p>
-            <!--
-                Essenciais:
-                autor(es), título da parte, artigo ou matéria, título da publicação, local de publicação,
-                numeração correspondente ao volume e/ou ano, fascículo ou número, paginação inicial e 
-                final, quando se tratar de artigo ou matéria, data ou intervalo de publicação e 
-                particularidades que identificam a parte (se houver).
-            -->
 
-            <!--Abas-->
+
+    <!--Título-->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 1000px;">
+                <h6 class="section-title bg-white text-center text-primary px-3">ARTIGO/MATERIA DE REVISTA OU BOLETIM
+                </h6>
+                <h1 class="display-6 mb-4">XXXXXXXXXXXXXXX</h1>
+            </div>
+        </div>
+    </div>
+    <!--Fim Título-->
+
+    <!--Abas-->
+    <div class="container-xxl">
+        <div class="container">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="obrigatorios-tab" data-bs-toggle="tab"
@@ -187,162 +190,172 @@
                         type="button" role="tab" aria-controls="profile" aria-selected="false">Opcional</button>
                 </li>
             </ul>
+        </div>
+    </div>
+    <!--Fim Abas-->
 
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="obrigatorios" role="tabpanel"
-                    aria-labelledby="obrigatorios-tab"><br>
-                    <div class="row g-2">
-                        <div class="col-md-4">
-                            <select class="form-select" aria-label=".form-select example" id="tipoAutor">
-                                <option selected>Tipo de Autor</option>
-                                <option value="1">Pessoa Fisica</option>
-                                <option value="2">Entidade</option>
-                            </select>
-                        </div>
+    <!--Conteúdo para preencher-->
+    <div class="tab-content" id="myTabContent">
+        <!--conteudo obrigatorio-->
+        <div class="tab-pane fade show active" id="obrigatorios" role="tabpanel" aria-labelledby="obrigatorios-tab">
+            <div class="container-xxl py-5">
+                <div class="container">
+                    <form>
+                        <div class="row g-4 mb-5">
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <h4 class="mb-0">Autores</h4>
+                                <!--Tipo-->
+                                <select class="form-select mb-2" aria-label=".form-select example" id="tipoAutor">
+                                    <option selected>Tipo de Autor</option>
+                                    <option value="1">Pessoa Fisica</option>
+                                    <option value="2">Entidade</option>
+                                </select>
 
-                        <div class="col-md-4">
-                            <select class="form-select" aria-label=".form-select-sm example" id="responsabilidade">
-                                <option selected>Responsabilidade</option>
-                                <option value="1">Autor</option>
-                                <option value="2">Editor</option>
-                                <option value="3">Compilador</option>
-                                <option value="4">Organizador</option>
-                                <option value="5">Coordenador</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row g-2">
-                        <label for="autor1">Autor 1</label>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="autor1" placeholder="Primeiros nomes">
-                        </div>
+                                <!--Responsabilidade intelectual-->
+                                <select class="form-select" aria-label=".form-select-sm example" id="responsabilidade">
+                                    <option selected>Responsabilidade</option>
+                                    <option value="1">Autor</option>
+                                    <option value="2">Editor</option>
+                                    <option value="3">Compilador</option>
+                                    <option value="4">Organizador</option>
+                                    <option value="5">Coordenador</option>
+                                </select>
+                            </div>
 
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="autor1Sobrenome" placeholder="Último Sobrenome">
-                        </div>
-                    </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                                <h4 class="mb-0">Autor 1</h4>
+                                <input type="text" class="form-control mb-2" id="autor1" placeholder="Primeiros nomes">
+                                <input type="text" class="form-control" id="autor1Sobrenome"
+                                    placeholder="Último Sobrenome">
+                            </div>
 
-                    <div class="row g-2">
-                        <div>Autor 2</div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="autor2" placeholder="Primeiros nomes">
-                        </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Autor 2</h4>
+                                <input type="text" class="form-control mb-2" id="autor2" placeholder="Primeiros nomes">
+                                <input type="text" class="form-control" id="autor2Sobrenome"
+                                    placeholder="Último Sobrenome">
+                            </div>
 
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="autor2Sobrenome" placeholder="Último Sobrenome">
-                        </div>
-                    </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <h4 class="mb-0">Autor 3</h4>
+                                <input type="text" class="form-control mb-2" id="autor3" placeholder="Primeiros nomes">
+                                <input type="text" class="form-control" id="autor3Sobrenome"
+                                    placeholder="Último Sobrenome">
+                            </div>
 
-                    <div class="row g-2">
-                        <div>Autor 3</div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="autor3" placeholder="Primeiros nomes">
-                        </div>
-
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="autor3Sobrenome" placeholder="Último Sobrenome">
-                        </div>
-                    </div>
-
-                    <div class="row g2">
-                        <div class="col-md-8">
-                            <div class="form-check">
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                                <h4 class="mb-3">Outros tipos de autoria</h4>
                                 <input class="form-check-input" type="checkbox" name="formMais3autores"
                                     id="mais3autores">
                                 <label class="form-check-label" for="mais3autores">
                                     A obra possui mais de 3 autores
-                                </label>
-                            </div>
-                        </div>
+                                </label><br>
 
-                        <div class="col-md-8">
-                            <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="formSemAutores" id="semAutores">
                                 <label class="form-check-label" for="semAutores">
                                     Autoria desconhecida
                                 </label>
                             </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Entidade (somente quando necessário)</h4>
+                                <input type="text" class="form-control" id="entidade" placeholder="Entidade">
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Título da parte</h4>
+                                <input type="text" class="form-control" id="tituloParte" placeholder="Titulo parte">
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Título da publicação</h4>
+                                <input type="text" class="form-control" id="titulo" placeholder="Titulo publicacao">
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Local</h4>
+                                <input type="text" class="form-control" id="local" placeholder="Local">
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Volume</h4>
+                                <input type="text" class="form-control" id="volume" placeholder="Ex: 1">
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Ano</h4>
+                                <input type="text" class="form-control" id="ano" placeholder="Ex: 5">
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Fascículo</h4>
+                                <input type="text" class="form-control" id="fasciculo" placeholder="Ex: 8">
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Páginas inicias e finais</h4>
+                                <input type="text" class="form-control" id="pagInicialFinal" placeholder="Ex: 123-125">
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Data de publicação</h4>
+                                <div class="row g-2">
+                                    <div class="col-md-4">
+                                        <label for="diaPublicacao">Dia</label>
+                                        <input type="text" class="form-control" id="diaPublicacao"
+                                        placeholder="Ex.: 23">
+                                    </div>
+    
+                                    <div class="col-md-4">
+                                        <label for="diaPublicacao">Mês</label>
+                                        <input type="text" class="form-control" id="mesPublicacao"
+                                        placeholder="Ex.: jan">
+                                    </div>
+    
+                                    <div class="col-md-4">
+                                        <label for="diaPublicacao">Ano</label>
+                                        <input type="text" class="form-control" id="anoPublicacao"
+                                        placeholder="Ex.: 2022">
+                                    </div>
+                                </div>                                
+                            </div>
                         </div>
-                    </div>
-
-                    <br>
-                    
-                    <div class="row g-2">
-                        <div class="col-md-8">
-                            <!-- <div>Titulo</div> -->
-                            <input type="text" class="form-control" id="tituloParte"
-                                placeholder="Título da parte, artigo ou matéria"><br>
-                        </div>
-                    </div>
-
-                    <div class="row g-2">
-                        <div class="col-md-8">
-                            <!-- <div>Titulo</div> -->
-                            <input type="text" class="form-control" id="tituloPublicacao"
-                                placeholder="Título da publicação"><br>
-                        </div>
-                    </div>
-
-                    <div class="row g-2">
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="local" placeholder="Local">
-                        </div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="editora" placeholder="Editora"><br>
-
-                        </div>
-                    </div>
-
-                    <div>Data de início da publicação:</div>
-                    <div class="row g-2">
-                        <!-- <label>Data de início da publicação:</label> -->
-                        <div class="col-md-2">
-                            <input type="text" class="form-control" id="diaInicio" placeholder="Ex: 20">
-
-                        </div>
-                        <div class="col-md-2">
-
-                            <input type="text" class="form-control" id="mesInicio" placeholder="Ex: jan">
-
-                        </div>
-                        <div class="col-md-2">
-                            <input type="text" class="form-control" id="anoInicio" placeholder="Ex: 2022"><br>
-                        </div>
-                    </div>
-
-                    <div>Data de encerramento da publicação:</div>
-                    <div class="row g-2">
-                        <!-- <label>Data de encerramento da publicação:</label> -->
-                        <div class="col-md-2">
-                            <input type="text" class="form-control" id="diaEncerramento" placeholder="Ex: 20">
-
-                        </div>
-                        <div class="col-md-2">
-
-                            <input type="text" class="form-control" id="mesEncerramento" placeholder="Ex: fev">
-
-                        </div>
-                        <div class="col-md-2">
-                            <input type="text" class="form-control" id="anoEncerramento" placeholder="Ex: 2022"><br>
-                        </div>
-                    </div>
-
+                    </form>
                 </div>
-                <div class="tab-pane fade" id="opcionais" role="tabpanel" aria-labelledby="opcionais-tab">Conteúdo
-                    opcional</div>
             </div>
-            <input type="submit" name="enviar" value="Enviar" class="btn btn-primary"
-                onclick="artigoMateriaRevistaRef()">
-
-            <div>
-                <h3>RESULTADO</h3>
-                <p id="result"></p>
-                <p id="citacao"></p>
-            </div>
-
         </div>
+        <!--Fim conteudo obrigatorio-->
 
+        <!--conteúdo opcional-->
+        <div class="tab-pane fade" id="opcionais" role="tabpanel" aria-labelledby="opcionais-tab">
+            <div class="container-xxl py-5">
+                <div class="container">
+                    <p>TESTE, SOM, TESTANDO, 123</p>
+                </div>
+            </div>
+        </div>
     </div>
+    <!--Fim Conteúdo para preencher-->
+
+    <!--Botão enviar-->
+    <div class="container">
+        <input type="submit" name="enviar" class="btn btn-primary rounded-pill py-3 px-5" value="Gerar Referência"
+            onclick="artigoMateriaRevistaRef()">
+    </div>
+    <!--Fim Botão enviar-->
+
+    <!--Resultado-->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 1000px;">
+                <h6 class="section-title bg-white text-center text-primary px-3">RESULTADO</h6>
+            </div>
+            <!--mostrando as referências-->
+            <p id="result"></p>
+            <p id="citacao"></p>
+        </div>
+    </div>
+    <!--Fim Resultado-->
 
 
     <!-- Footer Start -->
@@ -350,23 +363,27 @@
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Address</h5>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <h5 class="text-light mb-4">Endereço</h5>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>R. São Luiz Gonzaga, s/n - Bairro São Luiz,
+                        Formiga - MG, 35577-010</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>(37) 3322-8432</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>formiga@ifmg.edu.br</p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href=""><i
-                                class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href=""><i
+                        <a class="btn btn-square btn-outline-secondary rounded-circle me-1"
+                            href="https://twitter.com/ifmgformiga"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-outline-secondary rounded-circle me-1"
+                            href="https://www.facebook.com/ifmgcampusformigaoficial"><i
                                 class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href=""><i
-                                class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square btn-outline-secondary rounded-circle me-0" href=""><i
-                                class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-square btn-outline-secondary rounded-circle me-1"
+                            href="https://www.instagram.com/ifmg_campusformiga/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square btn-outline-secondary rounded-circle me-0"
+                            href="https://www.youtube.com/ifmgcampusformiga"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-square btn-outline-secondary rounded-circle me-0"
+                            href="https://www.formiga.ifmg.edu.br/"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Quick Links</h5>
+                    <h5 class="text-light mb-4">Links Rápidos</h5>
                     <a class="btn btn-link" href="">About Us</a>
                     <a class="btn btn-link" href="">Contact Us</a>
                     <a class="btn btn-link" href="">Our Services</a>
@@ -444,9 +461,7 @@
 
     <!-- Template Javascript -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+
 </body>
 
 </html>
