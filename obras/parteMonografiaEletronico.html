@@ -32,7 +32,7 @@
 
     <!--JavaScript-->
     <script src="../js/formatacao/parteMonografiaEletronico.js" defer></script>
-    <title>Monografias</title>
+    <title>Parte de Monografias em meio eletrônico </title>
 </head>
 
 <body>
@@ -76,7 +76,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav me-auto p-3 p-lg-0">
-                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="../index.html" class="nav-item nav-link">Home</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Monografia</a>
                     <div class="dropdown-menu border-0 rounded-0 rounded-bottom m-0">
@@ -155,21 +155,20 @@
         </div>
     </nav>
 
-    <!--Entrada de dados-->
-    <!--PARA TABS-->
-    <!--https://www.youtube.com/watch?v=UDg6jy_iF24-->
-    <script src="js/main.js"></script>
-    <div class="elementos">
-        <div class="elementosObras">
-            <h2>Faça referencias de partes de monografias</h2>
-            <p>
-                Inclui capítulo, volume, fragmento e outras partes de uma obra, com autor(es) e/ou título próprios
-            </p>
-            <!--
-                Essenciais:
-                autor(es), título, edição, local, editora e data de publicação
-            -->
-            <!--Abas-->
+    <!--Título-->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 1000px;">
+                <h6 class="section-title bg-white text-center text-primary px-3">PARTE DE MONOGRAFIAS EM MEIO ELETRÔNICO</h6>
+                <h1 class="display-6 mb-4">XXXXXXXXXXXXXXX</h1>
+            </div>
+        </div>
+    </div>
+    <!--Fim Título-->
+
+    <!--Abas-->
+    <div class="container-xxl">
+        <div class="container">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="obrigatorios-tab" data-bs-toggle="tab"
@@ -181,254 +180,259 @@
                         type="button" role="tab" aria-controls="profile" aria-selected="false">Opcional</button>
                 </li>
             </ul>
+        </div>
+    </div>
+    <!--Fim Abas-->
 
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="obrigatorios" role="tabpanel"
-                    aria-labelledby="obrigatorios-tab"><br>
-                    <nav class="navbar navbar-dark bg-primary">
-                        <div class="container-fluid">
-                            <span class="navbar-brand mb-0 h3">Dados referentes a parte</span>
-                        </div>
-                    </nav>
+    <!--Conteúdo para preencher-->
+    <div class="tab-content" id="myTabContent">
+        <!--conteudo obrigatorio-->
+        <div class="tab-pane fade show active" id="obrigatorios" role="tabpanel" aria-labelledby="obrigatorios-tab">
+            <div class="container-xxl py-5">
+                <div class="container">
+                    <form>
+                        <div class="row g-4">
+                            <div class="text-center mx-auto mb-0 wow fadeInUp" data-wow-delay="0.1s"
+                                style="max-width: 1000px;">
+                                <h3 class="text-primary">Dados referentes a parte:</h3>
+                            </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <h4 class="mb-0">Autores</h4>
+                                <!--Tipo-->
+                                <select class="form-select mb-2" aria-label=".form-select example" id="tipoAutorParte">
+                                    <option selected>Tipo de Autor</option>
+                                    <option value="1">Pessoa Fisica</option>
+                                    <option value="2">Entidade</option>
+                                </select>
 
-                    <!--REFERENCIA DO CAPITULO-->
-                    <br><div class="row g-2">
-                        <div class="col-md-4">
-                            <select class="form-select" aria-label=".form-select example" id="tipoAutorParte">
-                                <option selected>Tipo de Autor</option>
-                                <option value="1">Pessoa Fisica</option>
-                                <option value="2">Entidade</option>
-                            </select>
-                        </div>
+                                <!--Responsabilidade intelectual-->
+                                <select class="form-select" aria-label=".form-select-sm example"
+                                    id="responsabilidadeParte">
+                                    <option selected>Responsabilidade</option>
+                                    <option value="1">Autor</option>
+                                    <option value="2">Editor</option>
+                                    <option value="3">Compilador</option>
+                                    <option value="4">Organizador</option>
+                                    <option value="5">Coordenador</option>
+                                </select>
+                            </div>
 
-                        <div class="col-md-4">
-                            <select class="form-select" aria-label=".form-select-sm example" id="responsabilidadeParte">
-                                <option selected>Responsabilidade</option>
-                                <option value="1">Autor</option>
-                                <option value="2">Editor</option>
-                                <option value="3">Compilador</option>
-                                <option value="4">Organizador</option>
-                                <option value="5">Coordenador</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row g-2">
-                        <label for="autor1">Autor 1</label>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="autor1Parte" placeholder="Primeiros nomes">
-                        </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                                <h4 class="mb-0">Autor 1</h4>
+                                <input type="text" class="form-control mb-2" id="autor1Parte" placeholder="Primeiros nomes">
+                                <input type="text" class="form-control" id="autor1SobrenomeParte"
+                                    placeholder="Último Sobrenome">
+                            </div>
 
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="autor1SobrenomeParte" placeholder="Último Sobrenome">
-                        </div>
-                    </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Autor 2</h4>
+                                <input type="text" class="form-control mb-2" id="autor2Parte" placeholder="Primeiros nomes">
+                                <input type="text" class="form-control" id="autor2SobrenomeParte"
+                                    placeholder="Último Sobrenome">
+                            </div>
 
-                    <div class="row g-2">
-                        <div>Autor 2</div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="autor2Parte" placeholder="Primeiros nomes">
-                        </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <h4 class="mb-0">Autor 3</h4>
+                                <input type="text" class="form-control mb-2" id="autor3Parte" placeholder="Primeiros nomes">
+                                <input type="text" class="form-control" id="autor3SobrenomeParte"
+                                    placeholder="Último Sobrenome">
+                            </div>
 
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="autor2SobrenomeParte" placeholder="Último Sobrenome">
-                        </div>
-                    </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                                <h4 class="mb-3">Outros tipos de autoria</h4>
+                                <input class="form-check-input mb-2" type="checkbox" name="formMais3autoresParte"
+                                    id="mais3autoresParte">
+                                <label class="form-check-label" for="mais3autoresParte">
+                                    O capítulo possui mais de 3 autores
+                                </label><br>
 
-                    <div class="row g-2">
-                        <div>Autor 3</div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="autor3Parte" placeholder="Primeiros nomes">
-                        </div>
+                                <input class="form-check-input" type="checkbox" name="formSemAutoresParte"
+                                    id="semAutoresParte">
+                                <label class="form-check-label" for="semAutoresParte">
+                                    Autoria desconhecida
+                                </label>
+                            </div>
 
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="autor3SobrenomeParte" placeholder="Último Sobrenome">
-                        </div>
-                    </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Entidade (somente quando necessário)</h4>
+                                <input type="text" class="form-control" id="entidadeParte" placeholder="Entidade">
+                            </div>
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="formMais3autoresParte" id="mais3autoresParte">
-                        <label class="form-check-label" for="mais3autoresParte">
-                            O capítulo possui mais de 3 autores
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="formSemAutoresParte" id="semAutoresParte">
-                        <label class="form-check-label" for="semAutoresParte">
-                            Autoria desconhecida
-                        </label>
-                    </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Título</h4>
+                                <input type="text" class="form-control" id="tituloParte" placeholder="Titulo da parte"><br>
+                            </div>
 
-                    <div class="row g-2">
-                        <div class="col-md-8">
-                            <div><br>Entidade (Somente quando necessário)</div>
-                            <input type="text" class="form-control" id="entidadeParte" placeholder="Entidade"><br>
-                        </div>
-                    </div>
+                            <!---------------------------------------------------------------------->
+                            <div class="text-center mx-auto mb-0 wow fadeInUp" data-wow-delay="0.1s"
+                                style="max-width: 1000px;">
+                                <h3 class="text-primary">Dados referentes ao todo:</h3>
+                            </div>
 
-                    <div class="row g-2">
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" id="tituloParte" placeholder="Titulo da parte"><br>
-                        </div>
-                    </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <h4 class="mb-0">Autores</h4>
+                                <!--Tipo-->
+                                <select class="form-select mb-2" aria-label=".form-select example" id="tipoAutor">
+                                    <option selected>Tipo de Autor</option>
+                                    <option value="1">Pessoa Fisica</option>
+                                    <option value="2">Entidade</option>
+                                </select>
 
-                    <!--REFERENCIA COMPLETA-->
-                    <nav class="navbar navbar-dark bg-primary">
-                        <div class="container-fluid">
-                            <span class="navbar-brand mb-0 h3">Dados referentes ao todo</span>
-                        </div>
-                    </nav>
-                    <br><div class="row g-2">
-                        <div class="col-md-4">
-                            <select class="form-select" aria-label=".form-select example" id="tipoAutor">
-                                <option selected>Tipo de Autor</option>
-                                <option value="1">Pessoa Fisica</option>
-                                <option value="2">Entidade</option>
-                            </select>
-                        </div>
+                                <!--Responsabilidade intelectual-->
+                                <select class="form-select" aria-label=".form-select-sm example" id="responsabilidade">
+                                    <option selected>Responsabilidade</option>
+                                    <option value="1">Autor</option>
+                                    <option value="2">Editor</option>
+                                    <option value="3">Compilador</option>
+                                    <option value="4">Organizador</option>
+                                    <option value="5">Coordenador</option>
+                                </select>
+                            </div>
 
-                        <div class="col-md-4">
-                            <select class="form-select" aria-label=".form-select-sm example" id="responsabilidade">
-                                <option selected>Responsabilidade</option>
-                                <option value="1">Autor</option>
-                                <option value="2">Editor</option>
-                                <option value="3">Compilador</option>
-                                <option value="4">Organizador</option>
-                                <option value="5">Coordenador</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row g-2">
-                        <label for="autor1">Autor 1</label>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="autor1" placeholder="Primeiros nomes">
-                        </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                                <h4 class="mb-0">Autor 1</h4>
+                                <input type="text" class="form-control mb-2" id="autor1" placeholder="Primeiros nomes">
+                                <input type="text" class="form-control" id="autor1Sobrenome"
+                                    placeholder="Último Sobrenome">
+                            </div>
 
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="autor1Sobrenome" placeholder="Último Sobrenome">
-                        </div>
-                    </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Autor 2</h4>
+                                <input type="text" class="form-control mb-2" id="autor2" placeholder="Primeiros nomes">
+                                <input type="text" class="form-control" id="autor2Sobrenome"
+                                    placeholder="Último Sobrenome">
+                            </div>
 
-                    <div class="row g-2">
-                        <div>Autor 2</div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="autor2" placeholder="Primeiros nomes">
-                        </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <h4 class="mb-0">Autor 3</h4>
+                                <input type="text" class="form-control mb-2" id="autor3" placeholder="Primeiros nomes">
+                                <input type="text" class="form-control" id="autor3Sobrenome"
+                                    placeholder="Último Sobrenome">
+                            </div>
 
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="autor2Sobrenome" placeholder="Último Sobrenome">
-                        </div>
-                    </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                                <h4 class="mb-3">Outros tipos de autoria</h4>
+                                <input class="form-check-input" type="checkbox" name="formMais3autores"
+                                    id="mais3autores">
+                                <label class="form-check-label" for="mais3autores">
+                                    A obra possui mais de 3 autores
+                                </label><br>
 
-                    <div class="row g-2">
-                        <div>Autor 3</div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="autor3" placeholder="Primeiros nomes">
-                        </div>
+                                <input class="form-check-input" type="checkbox" name="formSemAutores" id="semAutores">
+                                <label class="form-check-label" for="semAutores">
+                                    Autoria desconhecida
+                                </label>
+                            </div>
 
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="autor3Sobrenome" placeholder="Último Sobrenome">
-                        </div>
-                    </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Entidade (somente quando necessário)</h4>
+                                <input type="text" class="form-control" id="entidade" placeholder="Entidade">
+                            </div>
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="formMais3autores" id="mais3autores">
-                        <label class="form-check-label" for="mais3autores">
-                            A obra possui mais de 3 autores
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="formSemAutores" id="semAutores">
-                        <label class="form-check-label" for="semAutores">
-                            Autoria desconhecida
-                        </label>
-                    </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Título</h4>
+                                <input type="text" class="form-control" id="titulo" placeholder="Titulo">
+                            </div>
 
-                    <div class="row g-2">
-                        <div class="col-md-8">
-                            <div><br>Entidade (Somente quando necessário)</div>
-                            <input type="text" class="form-control" id="entidade" placeholder="Entidade"><br>
-                        </div>
-                    </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Edição</h4>
+                                <input type="text" class="form-control" id="edicao" placeholder="Edição">
+                            </div>
 
-                    <div class="row g-2">
-                        <div class="col-md-5">
-                            <input type="text" class="form-control" id="titulo" placeholder="Titulo">
-                        </div>
-                        <div class="col-md-3">
-                            <input type="text" class="form-control" id="edicao" placeholder="Edição"><br>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Local</h4>
+                                <input type="text" class="form-control" id="local" placeholder="Local">
+                            </div>
 
-                        </div>
-                    </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Editora</h4>
+                                <input type="text" class="form-control" id="editora" placeholder="Editora">
+                            </div>
 
-                    <div class="row g-2">
-                        <div class="col-md-3">
-                            <input type="text" class="form-control" id="local" placeholder="Local">
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Ano</h4>
+                                <input type="text" class="form-control" id="anoPublicacao" placeholder="Ano">
+                            </div>
 
-                        </div>
-                        <div class="col-md-2">
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Pagina inicial-final ou página isolada</h4>
+                                <input type="text" class="form-control" id="pag" placeholder="Ex: 5-7 ou 5"><br>
+                            </div>
 
-                            <input type="text" class="form-control" id="editora" placeholder="Editora">
-
-                        </div>
-                        <div class="col-md-3">
-                            <input type="text" class="form-control" id="anoPublicacao" placeholder="Ano"><br>
-
-                        </div>
-                    </div>
-
-                    <div class="row g-2">
-                        <div class="col-md-5">
-                            <div>Tipo de publicação</div>
-                            <div class="form-check form-check-inline">
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Tipo de publicação</h4>
                                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="cdrom"
                                     value="option1">
                                 <label class="form-check-label" for="cdrom">CD-Rom</label>
-                            </div>
-                            <div class="form-check form-check-inline">
+                                <br>
                                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="online"
                                     value="option2">
                                 <label class="form-check-label" for="online">Online</label>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="row g-2">
-                        <label>Disponível em: (Somente quando se tratar de publicação online)</label>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" id="fonte" placeholder="Disponível em"><br>
-                        </div>
-                    </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Disponível em (publicação online)</h4>
+                                <input type="text" class="form-control" id="fonte" placeholder="Disponível em"><br>
+                            </div>
 
-                    <div class="row g-2">
-                        <label>Acesso em:</label>
-                        <div class="col-md-2">
-                            <input type="text" class="form-control" id="dia" placeholder="Ex: 20">
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Acesso em</h4>
+                                <div class="row g-2">
+                                    <div class="col-md-4">
+                                        <label for="diaAcesso">Dia</label>
+                                        <input type="text" class="form-control" id="diaAcesso" placeholder="Ex: 20">
+                                    </div>
 
-                        </div>
-                        <div class="col-md-2">
+                                    <div class="col-md-4">
+                                        <label for="mesAcesso">Mês</label>
+                                        <input type="text" class="form-control" id="mesAcesso" placeholder="Ex: jan">
+                                    </div>
 
-                            <input type="text" class="form-control" id="mes" placeholder="Ex: jan">
+                                    <div class="col-md-4">
+                                        <label for="anoAcesso">Ano</label>
+                                        <input type="text" class="form-control" id="anoAcesso" placeholder="Ex: 2022">
+                                    </div>
+                                </div>
 
+                            </div>
                         </div>
-                        <div class="col-md-2">
-                            <input type="text" class="form-control" id="anoAcesso" placeholder="Ex: 2022"><br>
-                        </div>
-                    </div>
+                    </form>
                 </div>
-                <div class="tab-pane fade" id="opcionais" role="tabpanel" aria-labelledby="opcionais-tab">Conteúdo
-                    opcional</div>
             </div>
-            <input type="submit" name="enviar" value="Enviar" class="btn btn-primary" onclick="parteMonografiaEletronicoRef()">
-
-            <div>
-                <h3>RESULTADO</h3>
-                <p id="result"></p>
-                <p id="citacao"></p>
-            </div>
-            <!-- <button type="button" name="enviar" class="btn btn-primary" id="enviar">Gerar Referencia</button> -->
         </div>
+        <!--Fim conteudo obrigatorio-->
+
+        <!--conteúdo opcional-->
+        <div class="tab-pane fade" id="opcionais" role="tabpanel" aria-labelledby="opcionais-tab">
+            <div class="container-xxl py-5">
+                <div class="container">
+                    <p>TESTE, SOM, TESTANDO, 123</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Fim Conteúdo para preencher-->
+
+    <!--Botão enviar-->
+    <div class="container">
+        <input type="submit" name="enviar" class="btn btn-primary rounded-pill py-3 px-5" value="Gerar Referência"
+            onclick="parteMonografiaEletronicoRef()">
 
     </div>
+    <!--Fim Botão enviar-->
+
+    <!--Resultado-->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 1000px;">
+                <h6 class="section-title bg-white text-center text-primary px-3">RESULTADO</h6>
+            </div>
+            <!--mostrando as referências-->
+            <p id="result"></p>
+            <p id="citacao"></p>
+        </div>
+    </div>
+    <!--Fim Resultado-->
 
 
     <!-- Footer Start -->

@@ -118,6 +118,7 @@ function parteMonografiaEletronicoRef(){
     var editora = document.getElementById('editora').value;
     var anoPublicacao = document.getElementById('anoPublicacao').value;
     var entidade = document.getElementById('entidade').value;
+    var pag = document.getElementById('pag').value;
 
     //TIPO AUTOR
     var tipoAutor = document.querySelector("#tipoAutor").value;
@@ -224,6 +225,12 @@ function parteMonografiaEletronicoRef(){
     //ANO
     var anoFormat = editoraFormat + anoPublicacao + ".";
 
+    //PAGINAÇÃO
+    if(pag == "")
+        alert('Informe o(s) numero(s) da(s) página(s)')
+    else 
+        var pagFormat = anoFormat + " p. " + pag + ".";
+
     //CITAÇÃO NO TEXTO
     var citacaoAutores;
     var citacaoSemAutores;
@@ -258,24 +265,22 @@ function parteMonografiaEletronicoRef(){
         citacaoSemAutores = "("+ autor1Sobrenome.toUpperCase() + "; " + autor2Sobrenome.toUpperCase() + "; " + autor3Sobrenome.toUpperCase() + ", " + anoPublicacao + ")"
     }
 
-    var result = anoFormat;
-
     //CASO SEJA UMA PUBLICAÇÃO EM MEIO ELETRONICO
     var fonte = document.getElementById('fonte').value;
-    var dia = document.getElementById('dia').value;
-    var mes = document.getElementById('mes').value;
+    var diaAcesso = document.getElementById('diaAcesso').value;
+    var mesAcesso = document.getElementById('mesAcesso').value;
     var anoAcesso = document.getElementById('anoAcesso').value;
     var cdrom = document.getElementById('cdrom');
     var online = document.getElementById('online');
     if (cdrom.checked || online.checked) {
         if (cdrom.checked) {
-            result = anoFormat + " CD-ROM."
+            result = pagFormat + " CD-ROM."
         } else {
-            if (fonte == "" || dia == "" || mes == "" || anoAcesso == "") {
+            if (fonte == "" || diaAcesso == "" || mesAcesso == "" || anoAcesso == "") {
                 alert('Preencha todos os campos corretamente')
                 autoresFormt = undefined;
             } else {
-                result = anoFormat + " Disponível em: " + fonte + ". Acesso em: " + dia + " " + mes + ". " + anoAcesso + "."
+                result = pagFormat + " Disponível em: " + fonte + ". Acesso em: " + diaAcesso + " " + mesAcesso + ". " + anoAcesso + "."
             }
         }
     }
