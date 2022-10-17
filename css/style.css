@@ -522,3 +522,13 @@ p {
 .footer p{
     color: #fff;
 }
+
+/*Asterisco vermelho para campos required*/
+/* .requiredRed:after {
+    content:" *"; 
+    color: red;
+} */
+
+span{
+    color: red;
+}

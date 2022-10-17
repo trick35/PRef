@@ -32,7 +32,7 @@
 
     <!--JavaScript-->
     <script src="../js/formatacao/parteRevistaBoletim.js" defer></script>
-    <title>Monografias</title>
+    <title>Parte de revista, boletim</title>
 </head>
 
 <body>
@@ -155,124 +155,133 @@
         </div>
     </nav>
 
-    <!--Entrada de dados-->
-    <!--PARA TABS-->
-    <!--https://www.youtube.com/watch?v=UDg6jy_iF24-->
-    <script src="js/main.js"></script>
-    <div class="elementos">
-        <div class="elementosObras">
-            <h2>Faça referências de partes de revistas, <br>boletins etc</h2>
-            <p>
-                Inclui volume, fascículo, números especiais e suplementos, entre outros, sem título próprio
-            </p>
+    <!--Título-->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 1000px;">
+                <h6 class="section-title bg-white text-center text-primary px-3">PARTES DE REVISTA, BOLETINS ETC</h6>
+                <h1 class="display-6 mb-4">XXXXXXXXXXXXXXX</h1>
+            </div>
+        </div>
+    </div>
+    <!--Fim Título-->
 
-            <p>
-                FAZER ESSE AQUI DEPOIS<br>
-                SEÇÃO 7.5.2 NAS NORMAS DA ABNT
-            </p>
-            <!--
-                Essenciais:
-                título da publicação, local de publicação, editora, numeração do ano e/ou volume,
-                numeração do fascículo, informações de períodos e datas de sua publicação.
-            -->
-            <!--Abas-->
+    <!--Abas-->
+    <div class="container-xxl">
+        <div class="container">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="obrigatorios-tab" data-bs-toggle="tab"
                         data-bs-target="#obrigatorios" type="button" role="tab" aria-controls="home"
-                        aria-selected="true">Obrigatorio</button>
+                        aria-selected="true">Obrigatório</button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="opcionais-tab" data-bs-toggle="tab" data-bs-target="#opcionais"
                         type="button" role="tab" aria-controls="profile" aria-selected="false">Opcional</button>
                 </li>
             </ul>
-
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="obrigatorios" role="tabpanel"
-                    aria-labelledby="obrigatorios-tab"><br>
-
-
-
-                    <div class="row g-2">
-                        <div class="col-md-8">
-                            <!-- <div>Titulo</div> -->
-                            <input type="text" class="form-control" id="titulo" placeholder="Título"><br>
-                        </div>
-                    </div>
-
-                    <div class="row g-2">
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="local" placeholder="Local">
-                        </div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="editora" placeholder="Editora"><br>
-
-                        </div>
-                    </div>
-
-                    <div>Data de início da publicação:</div>
-                    <div class="row g-2">
-                        <!-- <label>Data de início da publicação:</label> -->
-                        <div class="col-md-2">
-                            <input type="text" class="form-control" id="diaInicio" placeholder="Ex: 20">
-
-                        </div>
-                        <div class="col-md-2">
-
-                            <input type="text" class="form-control" id="mesInicio" placeholder="Ex: jan">
-
-                        </div>
-                        <div class="col-md-2">
-                            <input type="text" class="form-control" id="anoInicio" placeholder="Ex: 2022"><br>
-                        </div>
-                    </div>
-
-                    <div>Data de encerramento da publicação:</div>
-                    <div class="row g-2">
-                        <!-- <label>Data de encerramento da publicação:</label> -->
-                        <div class="col-md-2">
-                            <input type="text" class="form-control" id="diaEncerramento" placeholder="Ex: 20">
-
-                        </div>
-                        <div class="col-md-2">
-
-                            <input type="text" class="form-control" id="mesEncerramento" placeholder="Ex: fev">
-
-                        </div>
-                        <div class="col-md-2">
-                            <input type="text" class="form-control" id="anoEncerramento" placeholder="Ex: 2022"><br>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="tab-pane fade" id="opcionais" role="tabpanel" aria-labelledby="opcionais-tab">Conteúdo
-                    opcional</div>
-            </div>
-            <input type="submit" name="enviar" value="Enviar" class="btn btn-primary"
-                onclick="parteRevistaBoletimRef()">
-
-            <div>
-                <h3>RESULTADO</h3>
-                <p id="result"></p>
-                <p id="citacao"></p>
-            </div>
-            <!-- <button type="button" name="enviar" class="btn btn-primary" id="enviar">Gerar Referencia</button> -->
-
-            <!-- 
-            <p id="teste">
-
-            </p>
-            <script>
-                const botao = document.getElementById('enviar');
-                botao.onclick = function () {
-                    document.getElementById('teste').innerHTML = "Funcionou";
-                }
-            </script> -->
-
         </div>
+    </div>
+    <!--Fim Abas-->
+
+    <!--Conteúdo para preencher-->
+    <div class="tab-content" id="myTabContent">
+        <!--conteudo obrigatorio-->
+        <div class="tab-pane fade show active" id="obrigatorios" role="tabpanel" aria-labelledby="obrigatorios-tab">
+            <div class="container-xxl py-5">
+                <div class="container">
+                    <form>
+                        <div class="row g-4">
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Título</h4>
+                                <input type="text" class="form-control" id="titulo" placeholder="Titulo">
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Local</h4>
+                                <input type="text" class="form-control" id="local" placeholder="Local">
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Editora</h4>
+                                <input type="text" class="form-control" id="editora" placeholder="Editora">
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Ano</h4>
+                                <input type="text" class="form-control" id="ano" placeholder="Ex: 5">
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Volume</h4>
+                                <input type="text" class="form-control" id="volume" placeholder="Ex: 1">
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Fascículo</h4>
+                                <input type="text" class="form-control" id="fasciculo" placeholder="Ex: 8">
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Data de publicação</h4>
+                                <div class="row g-2">
+                                    <div class="col-md-4">
+                                        <label for="diaPublicacao">Dia</label>
+                                        <input type="text" class="form-control" id="diaPublicacao"
+                                        placeholder="Ex.: 23">
+                                    </div>
+    
+                                    <div class="col-md-4">
+                                        <label for="mesPublicacao">Mês</label>
+                                        <input type="text" class="form-control" id="mesPublicacao"
+                                        placeholder="Ex.: jan">
+                                    </div>
+    
+                                    <div class="col-md-4">
+                                        <label for="anoPublicacao">Ano</label>
+                                        <input type="text" class="form-control" id="anoPublicacao"
+                                        placeholder="Ex.: 2022">
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--Fim conteudo obrigatorio-->
+
+        <!--conteúdo opcional-->
+        <div class="tab-pane fade" id="opcionais" role="tabpanel" aria-labelledby="opcionais-tab">
+            <div class="container-xxl py-5">
+                <div class="container">
+                    <p>TESTE, SOM, TESTANDO, 123</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Fim Conteúdo para preencher-->
+
+    <!--Botão enviar-->
+    <div class="container">
+        <input type="submit" name="enviar" class="btn btn-primary rounded-pill py-3 px-5" value="Gerar Referência"
+            onclick="parteRevistaBoletimRef()">
 
     </div>
+    <!--Fim Botão enviar-->
+
+    <!--Resultado-->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 1000px;">
+                <h6 class="section-title bg-white text-center text-primary px-3">RESULTADO</h6>
+            </div>
+            <!--mostrando as referências-->
+            <p id="result"></p>
+            <p id="citacao"></p>
+        </div>
+    </div>
+    <!--Fim Resultado-->
 
 
     <!-- Footer Start -->
