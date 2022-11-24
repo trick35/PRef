@@ -5,12 +5,14 @@ function artigoMateriaJornalRef(){
     var autor2Sobrenome = document.getElementById('autor2Sobrenome').value;
     var autor3 = document.getElementById('autor3').value;
     var autor3Sobrenome = document.getElementById('autor3Sobrenome').value;
-    var titulo = document.getElementById('titulo').value;
+    var autor4 = document.getElementById('autor4').value;
+    var autor4Sobrenome = document.getElementById('autor4Sobrenome').value;
+    var tituloJornal = document.getElementById('titulo').value;
     var tituloArtigo = document.getElementById('tituloArtigo').value;
     var local = document.getElementById('local').value;
-    //var volume = document.getElementById('volume').value;
-    //var ano = document.getElementById('ano').value;
-    //var fasciculo = document.getElementById('fasciculo').value;
+    var volume = document.getElementById('volume').value;
+    var ano = document.getElementById('ano').value;
+    var numero = document.getElementById('numero').value;
     var pagInicialFinal = document.getElementById('pagInicialFinal').value;
     var diaPublicacao = document.getElementById('diaPublicacao').value;
     var mesPublicacao = document.getElementById('mesPublicacao').value;
@@ -18,6 +20,10 @@ function artigoMateriaJornalRef(){
     var entidade = document.getElementById('entidade').value;
     var numComplemento = document.getElementById('numComplemento').value;
     var nomeComplemento = document.getElementById('nomeComplemento').value;
+
+    //elementos opcionais
+    var subtituloArtigo = document.getElementById('subtituloArtigo').value;
+    var subtituloJornal = document.getElementById('subtituloJornal').value;
 
     //TIPO AUTOR
     var tipoAutor = document.querySelector("#tipoAutor").value;
@@ -43,8 +49,8 @@ function artigoMateriaJornalRef(){
         nomeTipoComplemento = "Parte";
     }
 
-    //VERIFICANDO SE HÁ MAIS DE 3 AUTORES
-    var mais3autores = document.getElementById('mais3autores');
+    //VERIFICANDO SE HÁ MAIS DE 4 AUTORES
+    var mais4autores = document.getElementById('mais4autores');
 
     //VERIFICANDO SE A OBRA NÃO POSSUI AUTORES
     var semAutores = document.getElementById('semAutores');
@@ -53,25 +59,32 @@ function artigoMateriaJornalRef(){
     var autor1Format = autor1Sobrenome.toUpperCase() + ", " + autor1;
     var autor2Format = autor2Sobrenome.toUpperCase() + ", " + autor2;
     var autor3Format = autor3Sobrenome.toUpperCase() + ", " + autor3;
+    var autor4Format = autor4Sobrenome.toUpperCase() + ", " + autor4;
     var autoresFormt;
 
     //VERIFICAÇÃO DA QUANTIDADE DE AUTORES
     if (tipoAutor != 1 && tipoAutor != 2 && !semAutores.checked) {
-        alert('Informe o tipo do autor');
+        swal("Erro!", "Informe o tipo do autor!", "error");
+        return;
 
-    } else if (responsabilidade != 1 && responsabilidade != 2 && responsabilidade != 3 && responsabilidade != 4 && !semAutores.checked) {
-        alert('Informe a responsabilidade intelectual do autor');
+    } else if (responsabilidade != 1 && responsabilidade != 2 && responsabilidade != 3 && responsabilidade != 4 && responsabilidade != 5 && !semAutores.checked) {
+        swal("Erro!", "Informe a responsabilidade intelectual do autor!", "error");
+        return;
 
-    } else if (mais3autores.checked) {
+    } else if (mais4autores.checked) {
         var inicialAutor1 = autor1[0];
-        autoresFormt = autor1Sobrenome.toUpperCase() + ", " + inicialAutor1 + ". " + " et al";
+        autoresFormt = autor1Sobrenome.toUpperCase() + ", " + inicialAutor1 + ". " + " <i>et al</i>";
 
-    } else if (tipoAutor == 1 && autor1 == "" && autor1Sobrenome == "" && !semAutores.checked) {
-        alert("Autor 1 deve ser informado");
-        autoresFormt = undefined;
+    } else if (tipoAutor == 1 && autor1 == "" || autor1Sobrenome == "" && !semAutores.checked) {
+        //alert("Autor 1 deve ser informado");
+        swal("Erro!", "Autor 1 deve ser informado!", "error");
+        return;
+        //autoresFormt = undefined;
 
     } else if (tipoAutor == 2 && entidade == "" && !semAutores.checked) {
-        alert('Nome da entidade não informado');
+        //alert('Nome da entidade não informado');
+        swal("Erro!", "Nome da entidade não informado!", "error");
+        return;
 
     } else if (tipoAutor == 2 && entidade != "" && !semAutores.checked) {
         autoresFormt = entidade;
@@ -84,9 +97,13 @@ function artigoMateriaJornalRef(){
         //possui dois autores
         autoresFormt = autor1Format + "; " + autor2Format;
 
-    } else if (autor1 != "" && autor2 != "" && autor3 != "" && !semAutores.checked) {
+    } else if (autor1 != "" && autor2 != "" && autor3 != "" && autor4 == "" && !semAutores.checked) {
         //possui 3 autores
         autoresFormt = autor1Format + "; " + autor2Format + "; " + autor3Format;
+
+    } else if (autor1 != "" && autor2 != "" && autor3 != "" && autor4 != "" && !semAutores.checked) {
+        //possui 4 autores
+        autoresFormt = autor1Format + "; " + autor2Format + "; " + autor3Format + "; " + autor4Format;
 
     }
 
@@ -113,45 +130,87 @@ function artigoMateriaJornalRef(){
 
     //FORMATAÇÃO DO TITULO JUNTO COM OS AUTORES
     var tituloFormat;
-    if(titulo != "" && tituloArtigo != ""){
+    if(tituloJornal != "" && tituloArtigo != ""){
         if (semAutores.checked) {
             //não há autores
-            tituloFormat = tituloArtigo + ". " + titulo.bold() + ", ";
+            if(subtituloArtigo != "" && subtituloJornal == ""){
+                //há subtitulo somente na parte (artigo)
+                tituloFormat = tituloArtigo + ": " + subtituloArtigo + ". " + tituloJornal.bold() + ", ";
+            
+            } else if (subtituloArtigo == "" && subtituloJornal != ""){
+                //há subtitulo somente no periodico
+                tituloFormat = tituloArtigo + ". " + tituloJornal.bold() + ": " + subtituloJornal + ", ";
+            
+            } else if( subtituloArtigo != "" && subtituloJornal != ""){
+                //há subtitulo nos dois
+                tituloFormat = tituloArtigo + ": " + subtituloArtigo + ". " + tituloJornal.bold() + ": " + subtituloJornal + ", ";
+            
+            } else {
+                //não há subtitulo
+                tituloFormat = tituloArtigo + ". " + tituloJornal.bold() + ", ";
+            }
         } else {
             //há autores
-            tituloFormat = autoresFormt + ". " + tituloArtigo + ". " + titulo.bold() + ", ";
+            if(subtituloArtigo != "" && subtituloJornal == ""){
+                //há subtitulo somente na parte (artigo)
+                tituloFormat = autoresFormt + ". " + tituloArtigo + ": " + subtituloArtigo + ". " + tituloJornal.bold() + ", ";
+            
+            } else if (subtituloArtigo == "" && subtituloJornal != ""){
+                //há subtitulo somente no periodico
+                tituloFormat = autoresFormt + ". " + tituloArtigo + ". " + tituloJornal.bold() + ": " + subtituloJornal + ", ";
+            
+            } else if( subtituloArtigo != "" && subtituloJornal != ""){
+                //há subtitulo nos dois
+                tituloFormat = autoresFormt + ". " + tituloArtigo + ": " + subtituloArtigo + ". " + tituloJornal.bold() + ": " + subtituloJornal + ", ";
+            
+            } else {
+                //não há subtitulo
+                tituloFormat = autoresFormt + ". " + tituloArtigo + ". " + tituloJornal.bold() + ", ";
+            }
         }
-    } else if(titulo == "" && tituloArtigo != ""){
-        alert('Informe o título do jornal')
+    } else if(tituloJornal == "" && tituloArtigo != ""){
+        swal("Erro!", "Informe o título do jornal!", "error");
+        return;
     } else {
-        alert('Nenhum título foi informado')
+        swal("Erro!", "Nenhum título foi informado!", "error");
+        return;
     }
     
 
     //LOCAL
-    var localFormat = tituloFormat + local + ", ";
+    var localFormat;
+    if(local == ""){
+        localFormat = tituloFormat + "[<i>S. l.</i>], ";
+        
+    } else {
+        localFormat = tituloFormat + local + ", ";
+    }
 
     //ANO e VOLUME
-    //var anoVolume;
-    /*if(ano != "" && volume == ""){
+    var anoVolume;
+    if(ano != "" && volume == ""){
         //ha somente ano
         anoVolume = "ano " + ano;
     } else if(volume != "" && ano == ""){
         //há somente volume
         anoVolume = "v. " + volume;
-    } else {
+    } else if (ano != "" && volume != ""){
         //há ano e volume
-        anoVolume = "ano " + ano + ", v. " + volume + ", ";
+        anoVolume = "ano " + ano + ", v. " + volume;
+    } else {
+        swal("Erro!", "Informe o ano ou o volume!", "error")
+        return;
     }
-    var anoVolumeFormat = localFormat + anoVolume;*/
+    var anoVolumeFormat = localFormat + anoVolume;
 
-    //FASCÍCULO
-    // var fasciculoFormat;
-    // if(fasciculo == ""){
-    //     alert('Informe o fasciculo')
-    // } else {
-    //     fasciculoFormat = anoVolumeFormat + ", n " + fasciculo + ", ";
-    // }
+    //NÚMERO
+    var numeroFormat;
+    if(numero == ""){
+        swal("Erro!", "Informe o número!", "error");
+        return;
+    } else {
+        numeroFormat = anoVolumeFormat + ", n " + numero + ", ";
+    }
 
     //DATA DE PUBLICAÇÃO, COMPLEMENTO E PAGINAÇÃO
     var dataPubliFormat;
@@ -161,22 +220,24 @@ function artigoMateriaJornalRef(){
     if(tipoComplemento != "" && numComplemento != "" && nomeComplemento != ""){
         // a paginação vai por último
         if((diaPublicacao == "" && mesPublicacao == "" && anoPublicacao == "") || (mesPublicacao == "" && anoPublicacao == "")){
-            alert('Informe a data de publicação');
-            autoresFormt = undefined;
+            swal("Erro!", "Informe a data de publicação!", "error");
+            return;
+
         } else if(diaPublicacao == "" && mesPublicacao == ""){
-            dataPubliFormat = localFormat + anoPublicacao + ".";
+            dataPubliFormat = numeroFormat + anoPublicacao + ".";
+
         } else if( diaPublicacao == ""){
-            dataPubliFormat = localFormat + mesPublicacao + ". " + anoPublicacao + ".";
-        }
-        else {
-            dataPubliFormat = localFormat + diaPublicacao + " " + mesPublicacao + ". " + anoPublicacao + ". ";
+            dataPubliFormat = numeroFormat + mesPublicacao + ". " + anoPublicacao + ".";
+
+        } else {
+            dataPubliFormat = numeroFormat + diaPublicacao + " " + mesPublicacao + ". " + anoPublicacao + ". ";
         }
 
         complementoFormat = dataPubliFormat + nomeComplemento + ", " + nomeTipoComplemento + " " + numComplemento + ", ";
         //paginação
         if(pagInicialFinal == ""){
-            alert('Informe a paginação');
-            autoresFormt = undefined;
+            swal("Erro!", "Informe a paginação!", "error");
+            return;
         } else {
             paginasFormat = complementoFormat + "p. " + pagInicialFinal + ", ";
         }
@@ -187,23 +248,25 @@ function artigoMateriaJornalRef(){
         //paginação
         var paginasFormat;
         if(pagInicialFinal == ""){
-            alert('Informe a paginação');
-            autoresFormt = undefined;
+            swal("Erro!", "Informe a paginação!", "error");
+            return;
         } else {
-            paginasFormat = localFormat + "p. " + pagInicialFinal + ", ";
+            paginasFormat = numeroFormat + "p. " + pagInicialFinal + ", ";
         }
 
         //data de publicação
         if((diaPublicacao == "" && mesPublicacao == "" && anoPublicacao == "") || (mesPublicacao == "" && anoPublicacao == "")){
-            alert('Informe a data de publicação');
-            autoresFormt = undefined;
+            swal("Erro!", "Informe a data de publicação!", "error");
+            return;
+
         } else if(diaPublicacao == "" && mesPublicacao == ""){
             dataPubliFormat = paginasFormat + anoPublicacao + ".";
+
         } else if( diaPublicacao == ""){
             dataPubliFormat = paginasFormat + mesPublicacao + ". " + anoPublicacao + ".";
-        }
-        else {
-            dataPubliFormat = paginasFormat + diaPublicacao + " " + mesPublicacao + ". " + anoPublicacao + ". ";
+
+        } else {
+            dataPubliFormat = paginasFormat + diaPublicacao + " " + mesPublicacao + ". " + anoPublicacao + ".";
         }
 
         result = dataPubliFormat;
@@ -217,15 +280,15 @@ function artigoMateriaJornalRef(){
         citacaoAutores = entidade + " ("+ anoPublicacao + ")";
         citacaoSemAutores = "("+ entidade.toUpperCase() + ", " + anoPublicacao + ")";
     }
-    if(mais3autores.checked){
+    if(mais4autores.checked){
         //usar a abreviação de tres autores
-        citacaoAutores = autor1Sobrenome + " <i>et</i> al. (" + anoPublicacao + ")";
-        citacaoSemAutores = "(" + autor1Sobrenome.toUpperCase() + " <i>et</i> al., " + anoPublicacao + ")";
+        citacaoAutores = autor1Sobrenome + " <i>et al</i>. (" + anoPublicacao + ")";
+        citacaoSemAutores = "(" + autor1Sobrenome.toUpperCase() + " <i>et</i> al</i>., " + anoPublicacao + ")";
     
     } else if(semAutores.checked){
         //não há autores
-        citacaoAutores = titulo + " (" + anoPublicacao + ")";
-        citacaoSemAutores = "(" + titulo + ", " + anoPublicacao + ")";
+        citacaoAutores = tituloArtigo + " (" + anoPublicacao + ")";
+        citacaoSemAutores = "(" + tituloArtigo + ", " + anoPublicacao + ")";
 
     } else if(autor1Sobrenome != "" && autor2Sobrenome == "" && autor3Sobrenome == ""){
         //há somente um autor
@@ -243,10 +306,7 @@ function artigoMateriaJornalRef(){
         citacaoSemAutores = "("+ autor1Sobrenome.toUpperCase() + "; " + autor2Sobrenome.toUpperCase() + "; " + autor3Sobrenome.toUpperCase() + ", " + anoPublicacao + ")"
     }
 
-    if (autoresFormt == undefined && !semAutores.checked)
-        alert('Ocorreu um erro! Certifique-se que todos os campos foram preenchidos corretamente');
-    else{
-        document.getElementById('result').innerHTML = "Referência: " + result;
-        document.getElementById('citacao').innerHTML = "Citacão no texto: " + citacaoAutores + " ou " + citacaoSemAutores;
-    }
+    //RESULTADO
+    document.getElementById('result').innerHTML = "Referência: " + result;
+    document.getElementById('citacao').innerHTML = "Citacão no texto: " + citacaoAutores + " ou " + citacaoSemAutores;
 }

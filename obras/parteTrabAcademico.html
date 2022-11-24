@@ -31,10 +31,9 @@
     <link href="../css/style.css" rel="stylesheet">
 
     <!--JavaScript-->
-    <script src="../js/formatacao/artigoMateriaRevistaEletronico.js" defer></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    
-    <title>Artigos e materias de publicação periódica em meio eletrônico</title>
+    <script src="../js/formatacao/parteTrabAcademico.js" defer></script>
+    <title>Parte de Trabalhos acadêmicos</title>
 </head>
 
 <body>
@@ -81,7 +80,7 @@
                 <a href="../index.html" class="nav-item nav-link">Home</a>
 
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Monografia</a>
+                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Monografia</a>
                     <div class="dropdown-menu border-0 rounded-0 rounded-bottom m-0">
                         <a href="monografia.html" class="dropdown-item">Livro e/ou folheto</a>
                         <a href="monografiaEletronico.html" class="dropdown-item">Livro e/ou folheto em meio eletrônico</a>
@@ -90,21 +89,21 @@
                         eletrônico</a>
                         <a href="trabAcademico.html" class="dropdown-item">Trabalhos acadêmicos</a>
                         <a href="trabAcademicoEletronico.html" class="dropdown-item">Trabalhos acadêmicos em meio eletrônico</a>
-                        <a href="parteTrabAcademico.html" class="dropdown-item">Parte de trabalhos acadêmicos</a>
+                        <a href="parteTrabAcademico.html" class="dropdown-item active">Parte de trabalhos acadêmicos</a>
                         <a href="parteTrabAcademicoEletronico.html" class="dropdown-item">Parte de trabalhos acadêmicos em meio
                             eletrônico</a>
                     </div>
                 </div>
 
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Publicação Periódica</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Publicação Periódica</a>
                     <div class="dropdown-menu border-0 rounded-0 rounded-bottom m-0">
                         <a href="publicacaoPeriodica.html" class="dropdown-item">Coleção de publicação periódica</a>
                         <a href="publicacaoPeriodicaEletronico.html" class="dropdown-item">Coleção de publicação periódica em meio eletrônico</a>
                         <a href="partePublicacaoPeridodica.html" class="dropdown-item">Parte de coleção de publicação periódica</a>
                         <a href="parteRevistaBoletim.html" class="dropdown-item">Fascículo, suplemento e outros</a>
                         <a href="artigoMateriaRevista.html" class="dropdown-item">Artigo, seção e/ou matéria de publicação periódica</a>
-                        <a href="artigoMateriaRevistaEletronico.html" class="dropdown-item active">Artigo, seção e/ou matéria de publicação periódica em meio eletrônico</a>
+                        <a href="artigoMateriaRevistaEletronico.html" class="dropdown-item">Artigo, seção e/ou matéria de publicação periódica em meio eletrônico</a>
                         <a href="artigoMateriaJornal.html" class="dropdown-item">Artigo e/ou matéria de jornal</a>
                         <a href="artigoMateriaJornalEletronico.html" class="dropdown-item">Artigo e/ou matéria de jornal
                             em meio eletrônico</a>
@@ -157,22 +156,13 @@
             </div>
         </div>
     </nav>
-    <!--Navbar end-->
-
-    <!--Entrada de dados-->
-    <!--PARA TABS-->
-    <!--https://www.youtube.com/watch?v=UDg6jy_iF24-->
-
 
     <!--Título-->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 1000px;">
-                <h6 class="section-title bg-white text-center text-primary px-3">ARTIGO, SEÇÃO E /OU MATERIA DE PUBLICAÇÃO PERIÓDICA EM MEIO ELETRÔNICO
-                </h6>
-                <h1 class="display-6 mb-4">PARTES DE PUBLICAÇÃO PERIÓDICA, ARTIGO, COMUNICAÇÃO, EDITORIAL, ENTREVISTA, RECENSÃO, REPORTAGE,
-                     RESENHA E OUTROS EM MEIO ELETRÔNICO.
-                </h1>
+                <h6 class="section-title bg-white text-center text-primary px-3">PARTE DE TRABALHO ACADÊMICO</h6>
+                <h1 class="display-6 mb-4">SEÇÃO, CAPÍTULO, VOLUME, FRAGMENTO E OUTRAS PARTES DE UMA OBRA, COM AUTOR E/OU TÍTULO PRÓPRIOS</h1>
             </div>
         </div>
     </div>
@@ -203,9 +193,103 @@
             <div class="container-xxl py-5">
                 <div class="container">
                     <form>
-                        <div class="row g-4 mb-5">
+                        <div class="row g-4">
                             <div class="wow fadeInUp" data-wow-delay="0.3s">
                                 <h6 class="mb-0">Campos indicados com <span>*</span> são obrigatórios</h6>
+                            </div>
+
+                            <div class="text-center mx-auto mb-0 wow fadeInUp" data-wow-delay="0.1s"
+                                style="max-width: 1000px;">
+                                <h3 class="text-primary">Dados referentes a parte:</h3>
+                            </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <h4 class="mb-0">Autores<span>*</span></h4>
+                                <!--Tipo-->
+                                <select class="form-select mb-2" aria-label=".form-select example" id="tipoAutorParte"
+                                    required>
+                                    <option selected disabled value="">Tipo de Autor</option>
+                                    <option value="1">Pessoa Fisica</option>
+                                    <option value="2">Entidade</option>
+                                </select>
+
+                                <!--Responsabilidade intelectual-->
+                                <select class="form-select" aria-label=".form-select-sm example"
+                                    id="responsabilidadeParte" required>
+                                    <option selected disabled value="">Responsabilidade</option>
+                                    <option value="1">Autor</option>
+                                    <option value="2">Editor</option>
+                                    <option value="3">Compilador</option>
+                                    <option value="4">Organizador</option>
+                                    <option value="5">Coordenador</option>
+                                </select>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                                <h4 class="mb-3">Outros tipos de autoria</h4>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="radioTipoAutoriaParte"
+                                        id="mais4autoresParte">
+                                    <label class="form-check-label" for="mais4autoresParte">
+                                        A obra possui mais de 4 autores
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="radioTipoAutoriaParte"
+                                        id="semAutoresParte">
+                                    <label class="form-check-label" for="semAutoresParte">
+                                        Autoria desconhecida
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                                <h4 class="mb-0">Autor 1<span>*</span></h4>
+                                <input type="text" class="form-control mb-2" id="autor1Parte"
+                                    placeholder="Primeiros nomes">
+                                <input type="text" class="form-control" id="autor1SobrenomeParte"
+                                    placeholder="Último Sobrenome" required>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Autor 2</h4>
+                                <input type="text" class="form-control mb-2" id="autor2Parte"
+                                    placeholder="Primeiros nomes">
+                                <input type="text" class="form-control" id="autor2SobrenomeParte"
+                                    placeholder="Último Sobrenome">
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <h4 class="mb-0">Autor 3</h4>
+                                <input type="text" class="form-control mb-2" id="autor3Parte"
+                                    placeholder="Primeiros nomes">
+                                <input type="text" class="form-control" id="autor3SobrenomeParte"
+                                    placeholder="Último Sobrenome">
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <h4 class="mb-0">Autor 4</h4>
+                                <input type="text" class="form-control mb-2" id="autor4Parte"
+                                    placeholder="Primeiros nomes">
+                                <input type="text" class="form-control" id="autor4SobrenomeParte"
+                                    placeholder="Último Sobrenome">
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Entidade <h6>(se tipo de autor = entidade)</h6>
+                                </h4>
+                                <input type="text" class="form-control" id="entidadeParte" placeholder="Entidade">
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Título<span>*</span></h4>
+                                <input type="text" class="form-control" id="tituloParte" placeholder="Titulo da parte" required>
+                            </div>
+
+                            <!---------------------------------------------------------------------->
+                            <div class="text-center mx-auto mb-0 wow fadeInUp" data-wow-delay="0.1s"
+                                style="max-width: 1000px;">
+                                <h3 class="text-primary">Dados referentes ao todo:</h3>
                             </div>
 
                             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -283,101 +367,43 @@
                             </div>
 
                             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                                <h4 class="mb-0">Título artigo/matéria<span>*</span></h4>
-                                <input type="text" class="form-control" id="tituloParte" placeholder="Titulo parte">
+                                <h4 class="mb-0">Título<span>*</span></h4>
+                                <input type="text" class="form-control" id="titulo" placeholder="Titulo" required>
                             </div>
 
                             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                                <h4 class="mb-0">Título do periódico<span>*</span></h4>
-                                <input type="text" class="form-control" id="tituloPeriodico" placeholder="Titulo publicacao">
+                                <h4 class="mb-0">Ano de depósito<span>*</span></h4>
+                                <input type="text" class="form-control" id="anoDeposito" placeholder="Ex.: 2022" required>
                             </div>
 
                             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                                <h4 class="mb-0">Local</h4>
+                                <h4 class="mb-0">Tipo do trabalho<span>*</span></h4>
+                                <input type="text" class="form-control" id="tipoTrabalho" placeholder="Ex.: Tese, Dissertação etc" required>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Grau e curso<span>*</span></h4>
+                                <input type="text" class="form-control" id="grauCurso" placeholder="Ex.: Graduação em Administração" required>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Vinculação acadêmica<span>*</span></h4>
+                                <input type="text" class="form-control" id="vinculoAcademico" placeholder="Ex.: Instituto Federal de Minas Gerais" required>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <h4 class="mb-0">Local defesa/apresentação</h4>
                                 <input type="text" class="form-control" id="local" placeholder="Local">
                             </div>
 
                             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                                <h4 class="mb-0">Volume</h4>
-                                <input type="text" class="form-control" id="volume" placeholder="Ex: 1">
+                                <h4 class="mb-0">Ano defesa/apresentação<span>*</span></h4>
+                                <input type="text" class="form-control" id="anoDefesa" placeholder="Ex.: 2022">
                             </div>
 
                             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                                <h4 class="mb-0">Ano</h4>
-                                <input type="text" class="form-control" id="ano" placeholder="Ex: 5">
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                                <h4 class="mb-0">Número<span>*</span></h4>
-                                <input type="text" class="form-control" id="numero" placeholder="Ex: 8">
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                                <h4 class="mb-0">Páginas inicias e finais<span>*</span></h4>
-                                <input type="text" class="form-control" id="pagInicialFinal" placeholder="Ex: 123-125">
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                                <h4 class="mb-0">Data de publicação<span>*</span></h4>
-                                <div class="row g-2">
-                                    <div class="col-md-4">
-                                        <label for="diaPublicacao">Dia</label>
-                                        <input type="text" class="form-control" id="diaPublicacao"
-                                        placeholder="Ex.: 23">
-                                    </div>
-    
-                                    <div class="col-md-4">
-                                        <label for="mesPublicacao">Mês</label>
-                                        <input type="text" class="form-control" id="mesPublicacao"
-                                        placeholder="Ex.: jan">
-                                    </div>
-    
-                                    <div class="col-md-4">
-                                        <label for="anoPublicacao">Ano</label>
-                                        <input type="text" class="form-control" id="anoPublicacao"
-                                        placeholder="Ex.: 2022">
-                                    </div>
-                                </div>                                
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                                <h4 class="mb-0">Tipo de publicação<span>*</span></h4>
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="cdrom"
-                                    value="option1">
-                                <label class="form-check-label" for="cdrom">CD-Rom</label>
-                                <br>
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="online"
-                                    value="option2">
-                                <label class="form-check-label" for="online">Online</label>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                                <h4 class="mb-0">Disponível em (publicação online)</h4>
-                                <input type="text" class="form-control" id="fonte" placeholder="Disponível em"><br>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                                <h4 class="mb-0">Acesso em</h4>
-                                <div class="row g-2">
-                                    <div class="col-md-4">
-                                        <label for="diaAcesso">Dia</label>
-                                        <input type="text" class="form-control" id="diaAcesso" placeholder="Ex: 20">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="mesAcesso">Mês</label>
-                                        <input type="text" class="form-control" id="mesAcesso" placeholder="Ex: jan">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="anoAcesso">Ano</label>
-                                        <input type="text" class="form-control" id="anoAcesso" placeholder="Ex: 2022">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="wow fadeInUp" data-wow-delay="0.5s">
-                                <h6 class="mb-0">Observação: Volume ou ano devem ser inseridos. Um dos dois é obrigatório</h6>
+                                <h4 class="mb-0">Folha inicial-final ou página isolada<span>*</span></h4>
+                                <input type="text" class="form-control" id="folha" placeholder="Ex: 5-7 ou 5"><br>
                             </div>
                         </div>
                     </form>
@@ -393,18 +419,13 @@
                     <form class="row g-3">
                         <div class="row g-4">
                             <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.1s">
-                                <h4 class="mb-0">Subtítulo artigo/matéria</h4>
-                                <input type="text" class="form-control" id="subtituloArtigo" placeholder="Subtítulo">
+                                <h4 class="mb-0">Subtítulo</h4>
+                                <input type="text" class="form-control" id="subtitulo" placeholder="Subtítulo" required>
                             </div>
                         
                             <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.1s">
-                                <h4 class="mb-0">Subtítulo do periódico</h4>
-                                <input type="text" class="form-control" id="subtituloPeriodico" placeholder="Subtítulo">
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.1s">
-                                <h4 class="mb-0">DOI</h4>
-                                <input type="text" class="form-control" id="doi" placeholder="DOI">
+                                <h4 class="mb-0">Orientador</h4>
+                                <input type="text" class="form-control" id="orientador" placeholder="Orientador" required>
                             </div>
                         </div>
                     </form>
@@ -417,7 +438,8 @@
     <!--Botão enviar-->
     <div class="container wow fadeInUp">
         <input type="submit" name="enviar" class="btn btn-primary rounded-pill py-3 px-5" value="Gerar Referência"
-            onclick="artigoMateriaRevistaEletronicoRef()">
+            onclick="parteTrabAcademicoRef()">
+
     </div>
     <!--Fim Botão enviar-->
 
@@ -437,7 +459,6 @@
         </div>
     </div>
     <!--Fim Resultado-->
-
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-body footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -508,7 +529,6 @@
 
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
-
 
 </body>
 

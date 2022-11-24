@@ -1,14 +1,14 @@
-function publicacaoPeriodicaRef(){
+function partePublicacaoPeriodicaRef(){
     var titulo = document.getElementById('titulo').value;
     var local = document.getElementById('local').value;
     var editora = document.getElementById('editora').value;
     var anoInicio = document.getElementById('anoInicio').value;
     var anoEncerramento = document.getElementById('anoEncerramento').value;
     var issn = document.getElementById('issn').value;
+    var periodoConsultado = document.getElementById('periodoConsultado').value;
 
     //elementos opcionais
     var subtitulo = document.getElementById('subtitulo').value;
-    var frequencia = document.getElementById('frequencia').value;
 
     //formatação do titulo
     var tituloFormat;
@@ -60,22 +60,34 @@ function publicacaoPeriodicaRef(){
         //não há um ao de encerramento
         var result = tituloFormat + localFormat + editoraFormat + anoInicioFormat + " . ";
 
+        //verificando se há periodo consultado
+        if(periodoConsultado == ""){
+            swal("Erro!", "Informe o período consultado", "error");
+            return;
+        } else {
+            result = result + periodoConsultado + ". ";
+        }
+
         //verificando se há issn
         if(issn != ""){
-            result = result + "ISSN " + issn + ". ";
+            result = result + "ISSN " + issn;
         }
     } else {
         //há um ano de encerramento
         result = tituloFormat + localFormat + editoraFormat + anoInicioFormat + anoEncerramento + ". ";
+
+        //verificando se há periodo consultado
+        if(periodoConsultado == ""){
+            swal("Erro!", "Informe o período consultado!", "error");
+            return;
+        } else {
+            result = result + periodoConsultado + ". ";
+        }
+
         //verificando se há issn
         if(issn != ""){
-            result = result + "ISSN " + issn + ". ";
+            result = result + "ISSN " + issn + ".";
         }
-    }
-
-    //caso haja frequência
-    if(frequencia != ""){
-        result = result + frequencia + ".";
     }
 
     //CITAÇÃO NO TEXTO

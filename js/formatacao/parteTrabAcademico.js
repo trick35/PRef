@@ -1,4 +1,4 @@
-function parteMonografiaRef(){
+function parteTrabAcademicoRef(){
     //REFERENCIA DA PARTE/CAPITULO
     var autor1Parte = document.getElementById('autor1Parte').value;
     var autor1SobrenomeParte = document.getElementById('autor1SobrenomeParte').value;
@@ -13,7 +13,7 @@ function parteMonografiaRef(){
 
     //elementos opcionais
     var subtitulo = document.getElementById('subtitulo').value;
-    var isbn = document.getElementById('isbn').value;
+    var orientador = document.getElementById('orientador').value;
 
     //TIPO AUTOR
     var tipoAutorParte = document.querySelector("#tipoAutorParte").value;
@@ -138,12 +138,14 @@ function parteMonografiaRef(){
     var autor4 = document.getElementById('autor4').value;
     var autor4Sobrenome = document.getElementById('autor4Sobrenome').value;
     var titulo = document.getElementById('titulo').value;
-    var edicao = document.getElementById('edicao').value;
+    var anoDeposito = document.getElementById('anoDeposito').value;
+    var tipoTrabalho = document.getElementById('tipoTrabalho').value;
+    var grauCurso = document.getElementById('grauCurso').value;
+    var vinculoAcademico = document.getElementById('vinculoAcademico').value;
     var local = document.getElementById('local').value;
-    var editora = document.getElementById('editora').value;
-    var anoPublicacao = document.getElementById('anoPublicacao').value;
+    var anoDefesa = document.getElementById('anoDefesa').value;
     var entidade = document.getElementById('entidade').value;
-    var pag = document.getElementById('pag').value;
+    var folha = document.getElementById('folha').value;
 
     //TIPO AUTOR
     var tipoAutor = document.querySelector("#tipoAutor").value;
@@ -156,8 +158,9 @@ function parteMonografiaRef(){
     //2- Editor
     //3- Tradutor
     //4- Organizador
+    //5- Coordenador
 
-    //VERIFICANDO SE HÁ MAIS DE 3 AUTORES
+    //VERIFICANDO SE HÁ MAIS DE 4 AUTORES
     var mais4autores = document.getElementById('mais4autores');
 
     //VERIFICANDO SE A OBRA NÃO POSSUI AUTORES
@@ -168,7 +171,7 @@ function parteMonografiaRef(){
     var autor2Format = autor2Sobrenome.toUpperCase() + ", " + autor2;
     var autor3Format = autor3Sobrenome.toUpperCase() + ", " + autor3;
     var autor4Format = autor4Sobrenome.toUpperCase() + ", " + autor4;
-    //var autoresFormt;
+    var autoresFormt;
 
     //VERIFICAÇÃO DA QUANTIDADE DE AUTORES
     if (tipoAutor != 1 && tipoAutor != 2 && !semAutores.checked) {
@@ -176,23 +179,24 @@ function parteMonografiaRef(){
         return;
 
     } else if (responsabilidade != 1 && responsabilidade != 2 && responsabilidade != 3 && responsabilidade != 4 && responsabilidade != 5 && !semAutores.checked) {
-        //alert('Informe a responsabilidade intelectual do autor');
         swal("Erro!", "Informe a responsabilidade intelectual do autor!", "error");
         return;
+        //document.querySelector("#responsabilidade").focus();
 
     } else if (mais4autores.checked) {
         var inicialAutor1 = autor1[0];
         autoresFormt = autor1Sobrenome.toUpperCase() + ", " + inicialAutor1 + ". " + " <i>et al</i>";
 
-    } else if (tipoAutor == 1 && autor1 == "" || autor1Sobrenome == "" && !semAutores.checked) {
-        //alert("Autor 1 deve ser informado");
-        swal("Erro!", "Autor 1 deve ser informado!", "error");
-       return;
-
     } else if (tipoAutor == 2 && entidade == "" && !semAutores.checked) {
         //alert('Nome da entidade não informado');
         swal("Erro!", "Nome da entidade não informado!", "error");
         return;
+
+    } else if (tipoAutor == 1 && (autor1 == "" || autor1Sobrenome == "") && !semAutores.checked) {
+        //alert("Autor 1 deve ser informado");
+        swal("Erro!", "Autor 1 deve ser informado!", "error");
+        return;
+        //autoresFormt = undefined;
 
     } else if (tipoAutor == 2 && entidade != "" && !semAutores.checked) {
         autoresFormt = entidade;
@@ -258,47 +262,68 @@ function parteMonografiaRef(){
             tituloFormat = autoresFormt + ". " + titulo.bold() + ". ";
         }
     }
+
+    //Caso haja orientador
+    if(orientador != ""){
+        tituloFormat = tituloFormat + "Orientador: " + orientador + ". ";
+    }
     
-    //EDIÇÃO
-    var edicaoFormat;
-    if(edicao == ""){
-        edicaoFormat = tituloFormat;
-    } else{
-        edicaoFormat = tituloFormat + edicao + ". ed. ";
+    //ANO DEPÓSITO
+    var anoDepositoFormat = "";
+    if(anoDeposito == ""){
+        //não foi inserido o ano de depósito
+        swal("Erro!", "Informe o ano de depósito!", "error");
+        return;
+    } else {
+        anoDepositoFormat = tituloFormat + anoDeposito + ". ";
+    }
+
+    //TIPO DE TRABALHO
+    var tipoTrabalhoFormat;
+    if(tipoTrabalho == ""){
+        //o tipo do trabalho não foi inserido
+        swal("Erro!", "Informe o tipo de trabalho!", "error");
+        return;
+    } else {
+        tipoTrabalhoFormat = anoDepositoFormat + tipoTrabalho + " (";
+    }
+
+    //GRAU E CURSO
+    var grauCursoFormat;
+    if(grauCurso == ""){
+        //o grau e o curso não foram inseridos
+        swal("Erro!", "Informe o grau e o curso!", "error");
+        return;
+    } else {
+        grauCursoFormat = tipoTrabalhoFormat + grauCurso + ") - ";
+    }
+
+    //VINCULAÇÃO ACADÊMICA
+    var vinculoAcademicoFormat;
+    if(vinculoAcademico == ""){
+        //o vinculo academico não foi inserido
+        swal("Erro!", "Informe a vinculação acadêmica!", "error");
+        return;
+    } else {
+        vinculoAcademicoFormat = grauCursoFormat + vinculoAcademico + ", ";
     }
 
     //LOCAL
     var localFormat;
-    if(local == "" && edicao != ""){
-        localFormat = edicaoFormat + " [<i>s. l.</i>]: ";
-
-    } else if(local == "" && edicao == ""){
-        localFormat = edicaoFormat + " [<i>S. l.</i>]: ";
+    if(local == ""){
+        localFormat = vinculoAcademicoFormat + "[<i>S. l.</i>], ";
         
     } else {
-        localFormat = edicaoFormat + local + ": ";
+        localFormat = vinculoAcademicoFormat + local + ", ";
     }
 
-    //EDITORA
-    var editoraFormat;
-    if(editora == ""){
-        editoraFormat = localFormat + " [<i>s. n.</i>], ";
-    } else {
-        editoraFormat = localFormat + editora + ", ";
-    }
-
-    //CASO EDITORA E LOCAL ESTEJAM VAZIOS
-    if (local == "" && editora == ""){
-        editoraFormat = edicaoFormat + "[<i>S. l.: s. n.</i>], ";
-    }
-
-    //ANO
+    //ANO DE DEFESA
     var anoFormat;
-    if(anoPublicacao == ""){
-        swal("Erro!", "Informe o ano!", "error");
+    if(anoDefesa == ""){
+        swal("Erro!", "Informe o ano de defesa/apresentação!", "error");
         return;
     } else {
-        anoFormat = editoraFormat + anoPublicacao + ".";
+        anoFormat = localFormat + anoDefesa + ".";
     }
 
     //CITAÇÃO NO TEXTO
@@ -306,55 +331,50 @@ function parteMonografiaRef(){
     var citacaoSemAutores;
     if(tipoAutor == 2){
         //entidade
-        citacaoAutores = entidade + " ("+ anoPublicacao + ")";
-        citacaoSemAutores = "("+ entidade.toUpperCase() + ", " + anoPublicacao + ")";
+        citacaoAutores = entidade + " ("+ anoDefesa + ")";
+        citacaoSemAutores = "("+ entidade.toUpperCase() + ", " + anoDefesa + ")";
     }
     if(mais4autores.checked){
         //usar a abreviação de quatro autores
-        citacaoAutores = autor1Sobrenome + " <i>et</i> al. (" + anoPublicacao + ")";
-        citacaoSemAutores = "(" + autor1Sobrenome.toUpperCase() + " <i>et al</i>., " + anoPublicacao + ")";
+        citacaoAutores = autor1Sobrenome + " <i>et al</i>. (" + anoDefesa + ")";
+        citacaoSemAutores = "(" + autor1Sobrenome.toUpperCase() + " <i>et al</i>., " + anoDefesa + ")";
     
     } else if(semAutores.checked){
         //não há autores
-        citacaoAutores = titulo + " (" + anoPublicacao + ")";
-        citacaoSemAutores = "(" + titulo + ", " + anoPublicacao + ")";
+        citacaoAutores = titulo + " (" + anoDefesa + ")";
+        citacaoSemAutores = "(" + titulo + ", " + anoDefesa + ")";
 
     } else if(autor1Sobrenome != "" && autor2Sobrenome == "" && autor3Sobrenome == ""){
         //há somente um autor
-        citacaoAutores = autor1Sobrenome + " ("+ anoPublicacao + ")";
-        citacaoSemAutores = "("+ autor1Sobrenome.toUpperCase() + ", " + anoPublicacao + ")";
+        citacaoAutores = autor1Sobrenome + " ("+ anoDefesa + ")";
+        citacaoSemAutores = "("+ autor1Sobrenome.toUpperCase() + ", " + anoDefesa + ")";
 
     } else if(autor1Sobrenome != "" && autor2Sobrenome != "" && autor3Sobrenome == ""){
         //há dois autores
-        citacaoAutores = autor1Sobrenome + " e " + autor2Sobrenome +  " ("+ anoPublicacao + ")";
-        citacaoSemAutores = "("+ autor1Sobrenome.toUpperCase() + "; " + autor2Sobrenome.toUpperCase() + ", " + anoPublicacao + ")";
+        citacaoAutores = autor1Sobrenome + " e " + autor2Sobrenome +  " ("+ anoDefesa + ")";
+        citacaoSemAutores = "("+ autor1Sobrenome.toUpperCase() + "; " + autor2Sobrenome.toUpperCase() + ", " + anoDefesa + ")";
 
     } else if(autor1Sobrenome != "" && autor2Sobrenome != "" && autor3Sobrenome != "" && autor4Sobrenome == ""){
         //há três autores
-        citacaoAutores = autor1Sobrenome + ", " + autor2Sobrenome + " e " + autor3Sobrenome + " ("+ anoPublicacao + ")";
-        citacaoSemAutores = "("+ autor1Sobrenome.toUpperCase() + "; " + autor2Sobrenome.toUpperCase() + "; " + autor3Sobrenome.toUpperCase() + ", " + anoPublicacao + ")"
+        citacaoAutores = autor1Sobrenome + ", " + autor2Sobrenome + " e " + autor3Sobrenome + " ("+ anoDefesa + ")";
+        citacaoSemAutores = "("+ autor1Sobrenome.toUpperCase() + "; " + autor2Sobrenome.toUpperCase() + "; " + autor3Sobrenome.toUpperCase() + ", " + anoDefesa + ")"
 
     } else if(autor1Sobrenome != "" && autor2Sobrenome != "" && autor3Sobrenome != "" && autor4Sobrenome != ""){
         //há quatro autores
-        citacaoAutores = autor1Sobrenome + ", " + autor2Sobrenome + " e " + autor3Sobrenome + " ("+ anoPublicacao + ")";
-        citacaoSemAutores = "("+ autor1Sobrenome.toUpperCase() + "; " + autor2Sobrenome.toUpperCase() + "; " + autor3Sobrenome.toUpperCase() + ", " + anoPublicacao + ")"
+        citacaoAutores = autor1Sobrenome + ", " + autor2Sobrenome + ", " + autor3Sobrenome + " e " + autor4Sobrenome +  " ("+ anoDefesa + ")";
+        citacaoSemAutores = "("+ autor1Sobrenome.toUpperCase() + "; " + autor2Sobrenome.toUpperCase() + "; " + autor3Sobrenome.toUpperCase() + "; " + autor4Sobrenome.toUpperCase() + ", " + anoDefesa + ")"
     }
 
 
     //RESULTADO
-    if(pag == ""){
+    if(folha == ""){
         swal("Erro!", "Informe o(s) numero(s) da(s) página(s)!", "error");
         return;
     }
     else 
-        var pagFormat = anoFormat + " p. " + pag + ".";
+        var pagFormat = anoFormat + " f. " + folha + ".";
 
     var result = resultParte + "<i>In</i>: " + pagFormat;
-
-    //caso tenha isbn
-    if(isbn != ""){
-        result = result + " ISBN " + isbn + ".";
-    }
 
     //RESULTADO
     document.getElementById('result').innerHTML = "Referência: " + result;

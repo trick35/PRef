@@ -9,53 +9,81 @@ function parteRevistaBoletimRef(){
     var mesPublicacao = document.getElementById('mesPublicacao').value;
     var anoPublicacao = document.getElementById('anoPublicacao').value;
 
-    //VARIÁVEIS DE CITAÇÃO NO TEXTO
-    var citacaoAutores;
-    var citacaoSemAutores;
+    //elementos opcionais
+    var subtitulo = document.getElementById('subtitulo').value;
+    var parte = document.getElementById('parte').value;
 
     //TITULO
+    var tituloFormat;
     if(titulo == ""){
-        alert('Informe o título');
-        titulo = undefined;
+        swal("Erro!", "Informe o titulo!", "error");
+        return;
     } else {
-        var tituloFormat = titulo.toUpperCase() + ". ";
-        citacaoAutores = titulo + " (";
-        citacaoSemAutores = "(" + titulo.toUpperCase() + ", ";
+        if(subtitulo != ""){
+            //há um subtitulo
+            tituloFormat = titulo + ": " + subtitulo + ". ";
+        } else {
+            //não há subtitulo
+            tituloFormat = titulo + ". ";
+        }
     }
 
-    //LOCAL
+    //formatacão do local
+    var localFormat;
     if(local == ""){
-        alert('Informe o local de publicação');
-        titulo = undefined;
+        localFormat = tituloFormat + "[<i>S. l.</i>]: ";
     } else {
-        var localFormat = tituloFormat + local + ": ";
+        localFormat = tituloFormat + local + ": ";
     }
 
     //EDITORA
+    var editoraFormat;
     if(editora == ""){
-        alert('Informe a editora');
-        titulo = undefined;
+        editoraFormat = localFormat + " [<i>s. n.</i>], ";
     } else {
-        var editoraFormat = localFormat + editora + ", ";
+        editoraFormat = localFormat + editora + ", ";
+    }
+
+    //CASO EDITORA E LOCAL ESTEJAM VAZIOS
+    if (local == "" && editora == ""){
+        editoraFormat = tituloFormat + "[<i>S. l.: s. n.</i>], ";
+        localFormat = "";
     }
 
     //ANO E VOLUME
     var anoVolume;
     if (volume == "" && ano != ""){
         //há ano
-        anoVolume = editoraFormat + "ano " + ano + ", ";
+        if(parte != ""){
+            //há parte
+            anoVolume = editoraFormat + "ano " + ano + ", pt. " + parte + ", ";
+        } else {
+            anoVolume = editoraFormat + "ano " + ano + ", ";
+        }
+        
     } else if (ano == "" && volume != ""){
         //há volume
-        anoVolume = editoraFormat + "v. " + volume + ", ";
+        if(parte != ""){
+            //há parte
+            anoVolume = editoraFormat + "v. " + volume + ", pt. " + parte + ", ";
+        } else {
+            anoVolume = editoraFormat + "v. " + volume + ", ";
+        }
+        
     } else if(ano != "" && volume != ""){
         //há ano e volume
-        anoVolume = editoraFormat + "ano " + ano + ", " + "v. " + volume + ", ";
+        if(parte != ""){
+            anoVolume = editoraFormat + "ano " + ano + ", " + "v. " + volume + ", pt. " + parte + ", ";
+        } else{
+            anoVolume = editoraFormat + "ano " + ano + ", " + "v. " + volume + ", ";
+        }
+        
     }
 
     //FASCICULO
     if(fasciculo == ""){
-        alert('Informe o fasciculo');
-        titulo = undefined;
+        swal("Erro!", "Informe o fascículo", "error")
+        return;
     } else {
         var fasciculoFormat = anoVolume + "n. " + fasciculo + ", ";
     }
@@ -63,8 +91,8 @@ function parteRevistaBoletimRef(){
     //DATA DE PUBLICAÇÃO
     var dataPubliFormat;
     if((diaPublicacao == "" && mesPublicacao == "" && anoPublicacao == "") || (mesPublicacao == "" && anoPublicacao == "")){
-        alert('Informe a data de publicação');
-        autoresFormt = undefined;
+        swal("Erro!", "Informe a data de publicação", "error")
+        return;
     } else if(diaPublicacao == "" && mesPublicacao == ""){
         dataPubliFormat = fasciculoFormat + anoPublicacao + ".";
     } else if( diaPublicacao == ""){
@@ -74,17 +102,14 @@ function parteRevistaBoletimRef(){
         dataPubliFormat = fasciculoFormat + diaPublicacao + " " + mesPublicacao + ". " + anoPublicacao + ".";
     }
 
-    citacaoAutores = citacaoAutores + anoPublicacao + ")";
-    citacaoSemAutores = citacaoSemAutores + anoPublicacao + ")";
+    //CITAÇÃO NO TEXTO
+    var citacaoAutores = titulo + " (" + anoPublicacao + ")";
+    var citacaoSemAutores = "(" + titulo.toUpperCase() + ", " + anoPublicacao + ")";
 
     //RESULTADO
     var result = dataPubliFormat;
 
-    if (titulo == undefined)
-        alert('Ocorreu um erro! Certifique-se que todos os campos foram preenchidos corretamente');
-    else{
-        document.getElementById('result').innerHTML = "Referência: " + result;
-        document.getElementById('citacao').innerHTML = "Citacão no texto: " + citacaoAutores + " ou " + citacaoSemAutores;
-    }
+    document.getElementById('result').innerHTML = "Referência: " + result;
+    document.getElementById('citacao').innerHTML = "Citacão no texto: " + citacaoAutores + " ou " + citacaoSemAutores;
 
 }

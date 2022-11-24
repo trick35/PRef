@@ -1,4 +1,4 @@
-function publicacaoPeriodicaRef(){
+function publicacaoPeriodicaEletronicoRef(){
     var titulo = document.getElementById('titulo').value;
     var local = document.getElementById('local').value;
     var editora = document.getElementById('editora').value;
@@ -9,6 +9,7 @@ function publicacaoPeriodicaRef(){
     //elementos opcionais
     var subtitulo = document.getElementById('subtitulo').value;
     var frequencia = document.getElementById('frequencia').value;
+    var doi = document.getElementById('doi').value;
 
     //formatação do titulo
     var tituloFormat;
@@ -58,24 +59,54 @@ function publicacaoPeriodicaRef(){
     //formatação da data de encerramento caso haja. Se não tiver o resultado será formatado
     if(anoEncerramento == ""){
         //não há um ao de encerramento
-        var result = tituloFormat + localFormat + editoraFormat + anoInicioFormat + " . ";
+        var resultPub = tituloFormat + localFormat + editoraFormat + anoInicioFormat + " . ";
 
         //verificando se há issn
         if(issn != ""){
-            result = result + "ISSN " + issn + ". ";
+            resultPub = resultPub + "ISSN " + issn;
         }
     } else {
         //há um ano de encerramento
-        result = tituloFormat + localFormat + editoraFormat + anoInicioFormat + anoEncerramento + ". ";
+        resultPub = tituloFormat + localFormat + editoraFormat + anoInicioFormat + anoEncerramento + ". ";
         //verificando se há issn
         if(issn != ""){
-            result = result + "ISSN " + issn + ". ";
+            resultPub = resultPub + "ISSN " + issn + ".";
         }
     }
 
+    //caso haja doi
+    if(doi != ""){
+        resultPub = resultPub + " DOI " + doi + ". ";
+    }
+
+    //CASO SEJA UMA PUBLICAÇÃO EM MEIO ELETRONICO
+    var fonte = document.getElementById('fonte').value;
+    var dia = document.getElementById('diaAcesso').value;
+    var mes = document.getElementById('mesAcesso').value;
+    var anoAcesso = document.getElementById('anoAcesso').value;
+    var cdrom = document.getElementById('cdrom');
+    var online = document.getElementById('online');
+    if (cdrom.checked || online.checked) {
+        if (cdrom.checked) {
+            resultElet = " CD-ROM."
+        } else {
+            if (fonte == "" || dia == "" || mes == "" || anoAcesso == "") {
+                swal("Erro!", "Preencha todos os campos sobre a publicação corretamente", "error");
+                return;
+            } else {
+                resultElet = " Disponível em: " + fonte + ". Acesso em: " + dia + " " + mes + ". " + anoAcesso + "."
+            }
+        }
+    } else if (!cdrom.checked && !online.checked) {
+        swal("Erro!", "Selecione o tipo de publicação", "error");
+        return;
+    }
+
+    var result = resultPub + resultElet;
+
     //caso haja frequência
     if(frequencia != ""){
-        result = result + frequencia + ".";
+        result = result + " " + frequencia + ".";
     }
 
     //CITAÇÃO NO TEXTO
